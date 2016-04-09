@@ -1,0 +1,6 @@
+.modal-header
+  %h1 Compare Websites
+= simple_form_for :compare_websites, method: :post do |f|
+  = f.input :web_page_link_1
+  = f.input :web_page_link_2
+  = f.submit 'Compare', class: 'btn btn-primary'
