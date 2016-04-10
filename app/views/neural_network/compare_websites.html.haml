@@ -5,4 +5,5 @@
   = f.input :web_page_link_2
   = f.submit 'Compare', class: 'btn btn-primary'
 
-- @result if @result.present?
+%br
+= params[:output] if params[:output].present?

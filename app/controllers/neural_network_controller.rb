@@ -8,23 +8,26 @@ class NeuralNetworkController < ApplicationController
 
   def compare_websites_update
     # Call the neural network
-    best_website = system "lib/a.out {params[:compare_websites][:web_page_link_1]} {params[:compare_websites][:web_page_link_2]}"
+    system "lib/a.out true"
 
-    # 1 = true and 2 = false
-    best_website == true ? best_website = 1 : best_website = 2
+    params[:compare_websites][:web_page_link_1]
+    params[:compare_websites][:web_page_link_2]
 
     sleep 0.3 # Wait to ensure c++ neural network updates output
 
     file = File.open("lib/output.txt", "r+")
-    @result = file.read
+    file_output = file.read
     file.close
 
     respond_to do |format|
-      format.html { redirect_to action: :compare_websites, @result }
+      format.html { redirect_to neural_network_compare_websites_path(:output => file_output) }
     end
   end
 
   def train
+    # Call neural network with true indicating that we want to train
+    system "lib/a.out"
+
     file = File.open("lib/output.txt", "r+")
     @result = file.read
     file.close
