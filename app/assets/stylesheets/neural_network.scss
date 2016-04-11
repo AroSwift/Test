@@ -1,3 +1,23 @@
 // Place all the styles related to the neural_network controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#first {
+  border:1px solid #000;
+  background:yellow;
+  min-height:230px;
+  width: 35%;
+  float: left;
+  margin-right: 50px;
+  padding-right: 400px;
+}
+
+#second {
+  margin-left: 50px;
+  background:red;
+  border:1px solid #000;
+  wdith: 35%;
+  min-height:230px;
+}
+
+//display: inline-block;
