@@ -1,47 +1,114 @@
 +----------------------------------------------------------------------------------------------------+
-|                                                                                                    |
-|    ~~~~~~.   .  .. ~~.=:.:~~:                                                                      |
-|    .~~..~...  . .  :~.~~~~~..                                 .....                                |
-|        ........ ....... ..                                    ~~~~.  .... .    ..   .....   .~..   |
-|===============:==:=:======:====:======:=========:========================================:===:=====|
-|o=ooo=oooo=ooooooooooooooooooooooooooooooooooooooooooooooooo=oo=oo:::~:~:~:~:~:::~:::~~::~:~~::::=o=|
-|=o=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=                               ==o|
-|o=oo===:::==:==:=:=o:::===:=:==::==:==ooooooooooooooooooooooooo==o              ....             =o=|
-|=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=o                               =oo|
-|o=ooo=====o==o=======oo==============oo==o=o===o==o=oo==oo==ooooo=.   .  .  .     .    ..~~~..   ===|
-|=oooo=====o===o=======o==o===o======o======o=====o=======ooooooo=o  .o=oo==o=ooooo=oooo=o===:    ==o|
-|=ooo============o===o======o==o=====o==o=o=============o==o=ooooo=    .  .. .     .  .  ..~.     =o=|
-|o=ooo==o=========o===o==========o============o===o=========oooooo=.  ~.~~~.~.~~~~.~.~~~~.~~:~    :o=|
-|=ooo=====o=====oo===========o====o==o==o===========o======ooooooo=. .===================o===:    ==o|
-|o=oo============o====oo==o=oo=o==o=o=o===o=o==oo=o==o==o===oooooo=               .~~..           =oo|
-|=oooo=oo===o=====ooooooooooooooooooooooooooooooooooooooooooooooo=o                ....           =o=|
-|o=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=.                              =o=|
-|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=o=:=::::==::::::=:::::::::::=::==o=|
-|=oooo=====o==========o=o==========ooooooooooooooooooooooooooooooo================================o=o|
-|o==oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=.                              =o=|
-|=oooo=o================================oo====:===o========o==ooo=o            .~.. ..            ==o|
-|o=oo====o=======o=o==========o================o=o===o==o====ooooo=.                              =o=|
-|o=ooo=====o=o================o===================o===o======oooo=o                         . .   =oo|
-|=ooo=================ooooo==o=oooooo=oooo=ooo=oooo=oo=ooooooooooo=. .:==:====:==============:    ==o|
-|oo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=.  :~::~~~~~:~~~~:~~~:~:~:~    :=o|
-|=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=                       ....    ==o|
-|o=ooo======oooooooooooooooooooooooooooooooooooooooooooooooooooooo=  .=o====o=oo===o==o===oo=:    :o=|
-|=oooo=o=o=ooooooooooooooooooooooooooooooooooooooooooooooooooooooo=   ......................~.    =oo|
-|o=ooo=o=o=o=o=o=oo==o==oo=oo=oo=o=o=o=o=oo=ooo==ooo=o==oooooooooo=.  ......................~~    =oo|
-|oooo==================o=====o=======o======================ooooo=o. .o==o=oo==o=o=o=o==o==o=:    ==o|
-|=oooo=======o=o=o=========o==========o=o=======:====o=====oooooo==            .~~~~~.            :==|
-|o==oo======o==o====oo=========o=====ooooooooooooooooooooooooooooo=.            .....             =oo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo==.                              =o=|
-|==oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo==::=:::::=:::::=:::::::::::=:==oo|
-|o==oo==:======ooooooooooooooooooooooooooooooooooooooooooooooooooo=oooo=ooooo=oo=oo=ooooooooooo====o=|
-|=oooooo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooo=o===oo===o=o=oo=oo===o==o===ooooo=o|
-|oo=o===========o======o===o==o=oo===o=o=o==o=oo=oo===ooo=oooooooo=oo=oo=o==o=oo=o=o=o=ooo=oo=oo==o=o|
-|o=ooo=====o==oo=o====o=======ooooooooooooooooooooooooooooooooooo=oo=o=ooooooo=o=oo=o=oo==oo=o=ooo==o|
-|=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo==o=oo===o=o=oo=o=oo==oo==o=oo==oo=|
-|o=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=oo=ooo=o=ooo=o=oo=o=o=oo=oo=oo=o=oo=oo|
-|::::::::::::::::::::::::::::::::::::::::::::~::::::::::~::::::::~::::::~::::::::::::::::::::::::::::|
-|                                                                                                    |
-|                                                                                                    |
-|  ...... . ..  .. .. ... .. ...  .....                                        ..   ... ..   . ...   |
-|                                                                                                    |
+|==:===:==========o====o=============================o============================:===o===========:==|
+|==:======:======================o=================o==============o=======o==o=================o===o=|
+|==:::~~~~~~=o========o==================o==========o==============o=====o==o===oo========o====o=====|
+|==oo=o=oo=ooooooooooooo=ooooooooo=oooooooo=oooooo=oo=ooooooooooo=ooooooooo=oooooooooooooooooooo=o=oo|
+|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=o=ooooooooooooooooooooooo=o|
+|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=ooooooo=ooooooooooooooooooooo|
+|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=o=o=ooooooo=ooo=ooooo=oooooo=|
+|ooooooo==oo===o=ooooo==oo=ooooooooo=oooo=oo=oooooo=ooo=ooooo=ooooooooooooooo=ooooooooooooooo:=:=:=oo|
+|ooooooooo===ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=o=oo|
+|ooooooo~~ ~==:======o========================o====o=========oooooooooooooooooo=oo=oo=oooo=oooooooooo|
+|oooo=oo~   .. ===========================o======o======o==o====o===ooooooooooo=============ooooooooo|
+|ooooooo=============o==================oo==oo=oooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooo====o===oo=ooooo=o=oo=oooooo=oooooooooooooooooooooooooooooooo==:===============oooooo|
+|ooooooo==o=oooo=oo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo.   ~~.====o==================o=======ooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo~.~~.~~===o=oo=oo=o==ooo=oooooo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooo=o=o=o=ooooo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo:~~~~..=========o========oo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooo=o~.~.~.~==o=o=o=o==oo=oo=oo=oooo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo=====oo=oooooo=o=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo:~~~::=========o=============o=====oooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo:~.~:=====oo====oo=o=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo~   ..:oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo~.....~==o=ooooo=ooo==oooo=o=ooo=oooooooooo=oo=oooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo~      ==============o===o=o==oo=====o==oo=oo=o====ooo==ooooooooooooooooooooooooooooooooooooo|
+|ooooooo~~~~...===============oo==o=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo..~~~~:o=oo=oo=ooo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo========o==oo=oo==ooo=ooo=ooooo=oo=ooooooooo=oo=o=o=oooo=oooooooooooooooooooooooooooooooooooo|
+|ooooooo=====o================o=o===oo====o=o===o=o=o=oo=o=ooo=o==oo=oooooooooooo=o===o=oo=ooooooooo=|
+|oooo=oo===oo====oo====oo=oooo=o=ooooooooooooooooooooooooooooooooooooooooo=ooooooo=oooooooooooooo==oo|
+|oooooooo=o=oo=ooo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooo=ooo=oo=o=oooooooooooooo|
+|ooooooooo=o=oo===o=o=oooooooooo=o=o==o=oo=o=o=o=o=o=o===ooooooo=o=ooooooooooooooooo=oo==oooooooooooo|
+|oooo=ooo==::==o================o=ooooo=o=ooo=o=o=o=oooo==ooo==oo=ooooooooooooooooooooooooooooooooooo|
+|ooooooo===:===o=====o==ooo=o=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooo=ooo=oo=oo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo:~:=:=:=o=o==o=oo=o=ooo==oooooo=o==o=o===o=oooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo~  .~~~=o===oo==o=====o=o======ooooo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo======oooo=o=o=oo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo===oo====ooo=o==o===o==o=oo==ooo==oo==oo===o=ooo==o=ooo=ooooooooooooooooooooooooooooooooooooo|
+|ooooo=o===oo===o====o===o==o=====o=ooo=oooo=oooooo=oooooo=oooooooooooooooooooooooooooooooooooooooooo|
+|oooooooo==o==o=ooo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooo===ooooo==o=oo==oo==ooo=o==o==oo==o=o===oo===o==o==o=o=oooooooooooooooooooooooooooooo|
+|oooo=ooooooooo====o====o=o===oo===o==o====o===oooo=oooooooooooooo=oo=ooooooooooooooooooooooooooooooo|
+|ooooooooooooooooo=oooo=ooo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo:~~~::====o=======o==o=oo=o=oo==ooo=oo======oo==ooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo.    ..===o====o====o====oo=====o==ooooooooo=oooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo=======oo=oo=oooo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo==o==oo==o=oo=o==oo=o==oo====o=o=o======o===o==oo====oo===ooooooooooooooooooooooooooooooooooo|
+|oooo=oo======oo=====o==o==o=o==oooooo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooo=ooo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooo======o===o==o==o====o=o====o==oooo=o=o==o=o==oo=o=oo=oo==oo=o===o=oo=o=o==o==oooooooo|
+|oooooooo=oooooo===oo=oo=ooooo=ooooooo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooooo=o=o=ooo=oooo=oooooooo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooo=oo=oo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo~~~~:~~=o==o=o========oo==o===o==o==o==o====o===oo===o=o===o==oo====o=o==oo===oo===oo====oooo|
+|oooo=oo...~~~~=======o===========o===========:=o======ooo=oooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo~::~:::=====oo=o==o===o=o==o===o=o==o=ooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooo=oo=o=o=oooo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo:.~  ..==o==o=o=====o=====oo=o====o===o====oooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo. .    ======o===oo===o===o=oooo=o=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo.  ...~o=oooooooo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=ooooooooo===o=o===o===oo==oo=====o======o====oo====o=o==o=o=o==o======oo===oo==o=o==o==oooooooo|
+|oooooooooooooo=======================o=============oo=o=oo=ooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooo===o=o=o==o==o=o=o=oo=oo==ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooo=o=oo=o=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooo====ooo==o===o===o====o====o=====o==o==o===o========o=====oooo==o===o===o==o=ooooooooooooooo|
+|oooo=oooo===ooo==o===ooo=o=oo=ooo=o=o==ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooo=oo=oo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo::::~~:=======o====o=======o======o========oo=ooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooo=o:::.  .=====ooo====o==oooo==ooooo=o=oo=oooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo:~~.~.~==o=ooo=oooo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo=::::::oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=ooo==:   ===o========o===oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo:~~.   ==o===o=o=o=o=ooo=oo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo~.  . .=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo=:::::=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo=======o=o=o============o====oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo==o==o=====o==oooo==ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo=======oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo. .   .:======o=====o======================o====o=o==o=o=o==o==o===o==oo=o=oooooooooooooooooo|
+|ooooooo:~~~~~~==o==oo==o=oo==o=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooo=oooooo=ooo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooo=oooooooo===================o========o===o===o=o====ooo===o======o====o=======o=o=====o===ooooo|
+|oooo=ooooooooo========o====o=====o=oo==ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooo==o===oo==o==oooo=oooooo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo=:==:==oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooo=       ====================o=o==o==o==o===o=o==o==o===o===o=o===o=o====o=o===o==========ooooo|
+|ooooooo       ==o======ooooo==o==ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo=::=::===o=o=ooo==oo=ooooo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooo=o=oo==oooo==oo=oo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo:~~~~.~=====o=================o==========o=====oo===oo======oo=o===o==o==oooooooooooooooooooo|
+|ooooooo   ~~..==oo=o=o=oo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo:~~::==ooo==ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooo=oo:~:~~~:======o====oo===oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooo=:::::===o==o=o==o===oooo=ooo=ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooo=ooooooooo=ooo=ooo=oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooo===oooooooooo=ooo==ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooooooooooooooooooo=ooooooooo=oooooooooooooooo=ooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooooooooooooooooo=oooooooo==ooooooooo=====o===ooooo=ooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooooooooooooooooo==ooooooooo==oooooooo===o=ooooooooo======oooooooooooooooooooooooooooooo|
+|ooooooooooooooooooooooooooooo===oooooooo=ooooooooo=====ooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooooooooooooooooo=o=o=oooo======oooooo==ooo=ooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooooooooooooooooo==o=oooooo===o=ooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|ooooooooooooooooooooooooooooooooo==ooo=oo=o=o=o=oo====o==o==o==ooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
+|oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
 +----------------------------------------------------------------------------------------------------+
