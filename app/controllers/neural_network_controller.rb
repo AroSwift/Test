@@ -21,13 +21,15 @@ class NeuralNetworkController < ApplicationController
     image_1.to_file("./lib/screenshot_1.png")
     image_2.to_file("./lib/screenshot_2.png")
 
-    # a = AsciiArt.new("http://www.wechitchat.com")
-    # output = a.to_ascii_art
+    ascii_text_1 = AsciiArt.new("./lib/screenshot_1.png")
+    File.open("./lib/ascii_1.txt", 'w') do |file|
+      file.write(ascii_text_1.to_ascii_art)
+    end
 
-    system "asciiart -c -f txt #{params[:compare_websites][:web_page_link_1]} > ./lib/ascii_1.txt"
-    system "asciiart -c -f txt #{params[:compare_websites][:web_page_link_2]} > ./lib/ascii_2.txt"
-
-    # sleep 0.3 # Wait to ensure c++ neural network updates output
+    ascii_text_2 = AsciiArt.new("./lib/screenshot_2.png")
+    File.open("./lib/ascii_2.txt", 'w') do |file|
+      file.write(ascii_text_2.to_ascii_art)
+    end
 
     # Read
     file = File.open("lib/output.txt", "r+")
