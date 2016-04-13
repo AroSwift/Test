@@ -7,11 +7,12 @@ class NeuralNetworkController < ApplicationController
   end
 
   def compare_websites_update
-    # Call the neural network
-    system "lib/a.out true"
+    # Process the websites
+    ProcessWebsite.new(url: params[:compare_websites][:web_page_link_1], image_num: 1)
+    ProcessWebsite.new(url: params[:compare_websites][:web_page_link_2], image_num: 2)
 
-    ProcessWebsite.new(params[:compare_websites][:web_page_link_1], 1)
-    ProcessWebsite.new(params[:compare_websites][:web_page_link_2], 2)
+    # Call the neural network
+    system "lib/a.out"
 
     # Read
     file = File.open("lib/output.txt", "r+")
@@ -20,30 +21,23 @@ class NeuralNetworkController < ApplicationController
 
     respond_to do |format|
       format.html {
-        redirect_to neural_network_compare_websites_path(:output => @file_output)
+        redirect_to neural_network_compare_websites_path(:output => file_output)
       }
     end
   end
 
   def train
-    # file = File.open("lib/output.txt", "r+")
-    # @result = file.read
-    # file.close
-
-    # file = File.open("lib...") do |f|
-    #   f.read
-    # end
-
-    # ProcessWebsite.new(params[:compare_websites][:web_page_link_1], 1)
-
+    # Get two new images
+    ProcessWebsite.new(image_num: 1)
+    ProcessWebsite.new(image_num: 2)
   end
 
   def train_update
     # Call neural network with true indicating that we want to train
-    system "lib/a.out"
+    system "lib/a.out {params[:best_image]}"
 
     respond_to do |format|
-      format.html { redirect_to action: :train_update }
+      format.html { redirect_to neural_network_train_path }
     end
   end
 
