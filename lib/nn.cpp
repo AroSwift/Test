@@ -19,6 +19,7 @@ using namespace std;
 // program, e.g., connect to a database, or take a stream of data from stdin, or
 // from a file specified by a command line argument, etc.
 
+
 class TrainingData
 {
 public:
@@ -33,6 +34,7 @@ public:
 private:
 	ifstream m_trainingDataFile;
 };
+
 
 void TrainingData::getTopology(vector<unsigned> &topology)
 {
