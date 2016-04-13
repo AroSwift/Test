@@ -25,7 +25,6 @@ gem 'rest-client'
 gem 'wkhtmltoimage-binary'
 gem 'mini_magick'
 gem 'imgkit'
-gem 'screencap'
 gem 'asciiart'
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'

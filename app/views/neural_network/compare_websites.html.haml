@@ -1,6 +1,9 @@
 .modal-header
   %h1 Compare Websites
 .content
+  %p
+    Please put in a url like: "wechitchat.com". No urls like: "http://wechitchat.com" will be accepted. Note: If the given image is invalid, we will provide a valid url by default.
+  %br
   = simple_form_for :compare_websites, url: { action: "compare_websites_update" }, method: :post do |f|
     = f.input :web_page_link_1
     = f.input :web_page_link_2

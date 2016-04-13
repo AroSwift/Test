@@ -26,13 +26,15 @@ class NeuralNetworkController < ApplicationController
     file_output.squish
     file.close
 
+    # Image 1 is better
     if file_output == 1
       @image_1 = "correct"
       @image_2 = "incorrect"
+    # Image 2 is better
     elsif file_output == 2
       @image_1 = "incorrect"
       @image_2 = "correct"
-    else
+    else # Something went wrong and both are bad
       @image_1 = "incorrect"
       @image_2 = "incorrect"
     end
