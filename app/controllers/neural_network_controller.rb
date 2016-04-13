@@ -1,12 +1,5 @@
 class NeuralNetworkController < ApplicationController
 
-  # require 'rest-client'
-  # require 'screencap'
-  # require 'phantomjs'
-  # require 'asciiart'
-  # require 'imgkit'
-  # require ProcessWebsite
-
   def index
   end
 
@@ -16,25 +9,6 @@ class NeuralNetworkController < ApplicationController
   def compare_websites_update
     # Call the neural network
     system "lib/a.out true"
-
-    # Take a screenshot of the two webpages
-    # image_1 = IMGKit.new(params[:compare_websites][:web_page_link_1])
-    # image_1.to_img(:png)
-    # image_1.to_file("./lib/screenshot_1.png")
-
-    # ascii_text_1 = AsciiArt.new("./lib/screenshot_1.png")
-    # File.open("./lib/ascii_1.txt", 'w') do |file|
-    #   file.write(ascii_text_1.to_ascii_art)
-    # end
-
-    # image_2 = IMGKit.new(params[:compare_websites][:web_page_link_2])
-    # image_2.to_img(:png)
-    # image_2.to_file("./lib/screenshot_2.png")
-
-    # ascii_text_2 = AsciiArt.new("./lib/screenshot_2.png")
-    # File.open("./lib/ascii_2.txt", 'w') do |file|
-    #   file.write(ascii_text_2.to_ascii_art)
-    # end
 
     ProcessWebsite.new(params[:compare_websites][:web_page_link_1], 1)
     ProcessWebsite.new(params[:compare_websites][:web_page_link_2], 2)
@@ -52,9 +26,6 @@ class NeuralNetworkController < ApplicationController
   end
 
   def train
-    # Call neural network with true indicating that we want to train
-    system "lib/a.out"
-
     # file = File.open("lib/output.txt", "r+")
     # @result = file.read
     # file.close
@@ -63,9 +34,14 @@ class NeuralNetworkController < ApplicationController
     #   f.read
     # end
 
+    # ProcessWebsite.new(params[:compare_websites][:web_page_link_1], 1)
+
   end
 
   def train_update
+    # Call neural network with true indicating that we want to train
+    system "lib/a.out"
+
     respond_to do |format|
       format.html { redirect_to action: :train_update }
     end

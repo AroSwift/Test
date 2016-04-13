@@ -1,4 +1,8 @@
 .modal-header
   %h1 Train Neural Network
-#first
-#second
+#first_image
+  = link_to neural_network_train_url(best_image: 1) do
+    = image_tag "screenshot_1.png", width: 400, height: 400, class: "normal"
+#second_image
+  = link_to neural_network_train_url(best_image: 2) do
+    = image_tag "screenshot_2.png", width: 400, height: 400, class: "normal"

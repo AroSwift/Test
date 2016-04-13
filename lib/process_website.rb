@@ -5,19 +5,23 @@ class ProcessWebsite
 
   def initialize(url, image_num)
     @image_num = image_num
-    @file = download_image(url)
+    download_image(url)
     convert_ascii
   end
 
   def download_image(url)
     kit = IMGKit.new(url)
-    file = "./lib/screenshot_#{@image_num}.png"
-    kit.to_file(file)
-    return file
+    @file = "./lib/screenshot_#{@image_num}.png"
+    kit.to_file(@file)
+  end
+
+  def enforce_size
+
   end
 
   def convert_ascii
-    system "asciiart -c #{@file} > ./lib/ascii_#{@image_num}.txt"
+    # sleep 3
+    system "asciiart -c -w 50 #{@file} > ./lib/ascii_#{@image_num}.txt"
   end
 
 end
