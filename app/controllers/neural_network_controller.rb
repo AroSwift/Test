@@ -14,19 +14,28 @@ class NeuralNetworkController < ApplicationController
     # Call the neural network
     system "lib/a.out"
 
-    # Read
-    file = File.open("lib/output.txt", "r+")
-    file_output = file.read
-    file.close
-
     respond_to do |format|
-      format.html {
-        redirect_to neural_network_compare_websites_path(:output => file_output)
-      }
+      format.html { redirect_to neural_network_show_websites_path }
     end
   end
 
   def show_websites
+    # Read the output of the file
+    file = File.open("lib/output.txt", "r+")
+    file_output = file.read
+    file_output.squish
+    file.close
+
+    if file_output == 1
+      @image_1 = "correct"
+      @image_2 = "incorrect"
+    elsif file_output == 2
+      @image_1 = "incorrect"
+      @image_2 = "correct"
+    else
+      @image_1 = "incorrect"
+      @image_2 = "incorrect"
+    end
   end
 
   def train
