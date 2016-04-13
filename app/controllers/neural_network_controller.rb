@@ -1,10 +1,5 @@
 class NeuralNetworkController < ApplicationController
 
-  # require 'rest-client'
-  # require 'screencap'
-  # require 'phantomjs'
-  require 'asciiart'
-
   def index
   end
 
@@ -12,54 +7,49 @@ class NeuralNetworkController < ApplicationController
   end
 
   def compare_websites_update
+    # Process the websites
+    ProcessWebsite.new(url: params[:compare_websites][:web_page_link_1], image_num: 1)
+    ProcessWebsite.new(url: params[:compare_websites][:web_page_link_2], image_num: 2)
+
     # Call the neural network
-    system "lib/a.out true"
-
-    # Take a screenshot of the two webpages
-    image_1 = IMGKit.new(params[:compare_websites][:web_page_link_1])
-    image_2 = IMGKit.new(params[:compare_websites][:web_page_link_2])
-    image_1.to_file("./lib/screenshot_1.png")
-    image_2.to_file("./lib/screenshot_2.png")
-
-    ascii_text_1 = AsciiArt.new("./lib/screenshot_1.png")
-    File.open("./lib/ascii_1.txt", 'w') do |file|
-      file.write(ascii_text_1.to_ascii_art)
-    end
-
-    ascii_text_2 = AsciiArt.new("./lib/screenshot_2.png")
-    File.open("./lib/ascii_2.txt", 'w') do |file|
-      file.write(ascii_text_2.to_ascii_art)
-    end
-
-    # Read
-    file = File.open("lib/output.txt", "r+")
-    file_output = file.read
-    file.close
+    system "lib/a.out"
 
     respond_to do |format|
-      format.html {
-        redirect_to neural_network_compare_websites_path(:output => @file_output)
-      }
+      format.html { redirect_to neural_network_show_websites_path }
+    end
+  end
+
+  def show_websites
+    # Read the output of the file
+    file = File.open("lib/output.txt", "r+")
+    file_output = file.read
+    file_output.squish
+    file.close
+
+    if file_output == 1
+      @image_1 = "correct"
+      @image_2 = "incorrect"
+    elsif file_output == 2
+      @image_1 = "incorrect"
+      @image_2 = "correct"
+    else
+      @image_1 = "incorrect"
+      @image_2 = "incorrect"
     end
   end
 
   def train
-    # Call neural network with true indicating that we want to train
-    system "lib/a.out"
-
-    # file = File.open("lib/output.txt", "r+")
-    # @result = file.read
-    # file.close
-
-    # file = File.open("lib...") do |f|
-    #   f.read
-    # end
-
+    # Get two new images
+    ProcessWebsite.new(image_num: 1)
+    ProcessWebsite.new(image_num: 2)
   end
 
   def train_update
+    # Call neural network with true indicating that we want to train
+    system "lib/a.out {params[:best_image]}"
+
     respond_to do |format|
-      format.html { redirect_to action: :train_update }
+      format.html { redirect_to neural_network_train_path }
     end
   end
 
