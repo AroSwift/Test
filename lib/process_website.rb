@@ -21,7 +21,7 @@ class ProcessWebsite
 
     # kit = IMGKit.new(url, :quality => 50, :width => side_size, :height => side_size, "crop-w" => crop_side_size, "crop-h" => crop_side_size, "disable-smart-width" => true, "zoom" => 0.2)
 
-    kit = IMGKit.new(url, "crop-w" => 1000, "crop-h" => 700)
+    kit = IMGKit.new(url, quality: 50, "crop-w" => 1000, "crop-h" => 700)
     @file = "./lib/screenshot_#{@image_num}.png"
     kit.to_file(@file)
   end

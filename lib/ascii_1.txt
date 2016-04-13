@@ -1,19 +1,19 @@
 +--------------------------------------------------+
-|++++++++++o+++o+++oo++oo+oo++++++o+o+o+o+o+o+o+o+o|
-|oooo+o+ooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|+o+oo+o+o+o+o+oooooooooooooooooooooooooooooooooooo|
-|               +o+ooooo+oooo+oooo+ooooo+oooo+ooooo|
+|       ...             ::::::::::~ .      ~~~..   |
+|          .:::::::::::::::::::::::::::::::~       |
+|          ~oooooooo==oo=====o====ooooooooo:       |
+|          ~oooooooooooooo==ooooooooooooooo:       |
+|          ~ooooooooooooooo=ooooooooooooooo:       |
+|          ~oooooooooooooo==ooooooooooooooo:       |
+|          ~oooooooooooooo===oooooooooooooo:       |
+|          .~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.       |
+|                                                  |
+|                                                  |
+|             ..~.~~.~~ ~. ~~ ~.~ ~..~~.           |
+|       . . .. ...  .. . . . . . ...~...~~...~.    |
+|                  . ......................... ....|
+|                     .~::~:~:~~~.    ..    . .. ..|
+|              . .      .  .. .    . .. . ... .....|
+|                    ~              .. .......~..~~|
+|                          . . . .... ...~~~~::::::|
 +--------------------------------------------------+

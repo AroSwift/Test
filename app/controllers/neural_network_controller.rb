@@ -26,6 +26,9 @@ class NeuralNetworkController < ApplicationController
     end
   end
 
+  def show_websites
+  end
+
   def train
     # Get two new images
     ProcessWebsite.new(image_num: 1)
