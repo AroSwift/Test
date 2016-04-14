@@ -9,11 +9,11 @@ using namespace std;
 int main(int argc, char* argv[]){
 	Data *files;
 	if(argc == 2){
-		files = new Data("ascii_1.txt", "ascii_2.txt", "./lib/selection.train");
+		files = new Data("./lib/ascii_1.txt", "./lib/ascii_2.txt", "./lib/selection.train");
 		trainNN(files, argv);
 		return 0;
 	}
-	files = new Data("ascii_1.txt", "ascii_2.txt", "./lib/selection.test");
+	files = new Data("./lib/ascii_1.txt", "./lib/ascii_2.txt", "./lib/selection.test");
 	testNN(files);
 
 }
@@ -41,7 +41,7 @@ void writeOutput(ifstream& img, ofstream&output){
 	while(img.get(c)){
 		img.ignore(1, '\n');
 		temp.push_back(c);
-	} 
+	}
 	for(int i =0; i < temp.size(); i++){
 		output << (int)temp[i];
 	}
