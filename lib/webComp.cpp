@@ -37,6 +37,7 @@ void testNN(Data* files){
 void writeOutput(ifstream& img, ofstream&output){
 	vector<char> temp;
 	char c;
+	output << "0.";
 	while(img.get(c)){
 		img.ignore(1, '\n');
 		temp.push_back(c);
