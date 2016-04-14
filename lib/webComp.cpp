@@ -9,11 +9,11 @@ using namespace std;
 int main(int argc, char* argv[]){
 	Data *files;
 	if(argc == 2){
-		files = new Data("ascii_1.txt", "ascii_2.txt", "selection.train");
+		files = new Data("ascii_1.txt", "ascii_2.txt", "./lib/selection.train");
 		trainNN(files, argv);
 		return 0;
 	}
-	files = new Data("ascii_1.txt", "ascii_2.txt", "selection.test");
+	files = new Data("ascii_1.txt", "ascii_2.txt", "./lib/selection.test");
 	testNN(files);
 
 }
