@@ -1,5 +1,6 @@
 #include <iostream>
 #include<cstdlib>
+#include<vector>
 #include "functions.h"
 
 
@@ -9,7 +10,7 @@ int main(int argc, char* argv[]){
 	Data *files;
 	if(argc == 2){
 		files = new Data("ascii_1.txt", "ascii_2.txt", "selection.train");
-		trainNN(files, (*argv)[1]);
+		trainNN(files, argv);
 		return 0;
 	}
 	files = new Data("ascii_1.txt", "ascii_2.txt", "selection.test");
@@ -17,11 +18,11 @@ int main(int argc, char* argv[]){
 
 }
 
-void trainNN(Data* files, char superiorSite){
+void trainNN(Data* files, char** superiorSite){
 	writeOutput(files->imgOne, files->output);
 	files->output << " ";
 	writeOutput(files->imgTwo, files->output);
-	files->output << endl << superiorSite << endl;
+	files->output << endl << superiorSite[1] << endl;
 	delete files;
 }
 
@@ -34,12 +35,14 @@ void testNN(Data* files){
 }
 
 void writeOutput(ifstream& img, ofstream&output){
-	string temp;
-	int i = 0;
+	vector<char> temp;
+	char c;
 	do{
-		img.ignore(100, '\n');
-		img.get(temp[i]);
-		i++;
+		img.get(c);
+		img.ignore(1, '\n');
+		temp.push_back(c);
 	}while(!img.eof()); 
-	output << ( (double)atoi(temp.c_str()))/1000.0;
+	for(int i =0; i < temp.size(); i++){
+		output << (int)temp[i];
+	}
 }
