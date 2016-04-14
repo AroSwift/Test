@@ -30,7 +30,7 @@ class ProcessWebsite
       url = "http://www." + chose_website
     end
 
-    kit = IMGKit.new(url, quality: 50, "crop-w" => 1000, "crop-h" => 700)
+    kit = IMGKit.new(url, quality: 100, "crop-w" => 1280, "crop-h" => 720)
     @file = "./lib/screenshot_#{@image_num}.png"
     kit.to_file(@file)
   end

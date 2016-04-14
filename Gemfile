@@ -26,6 +26,7 @@ gem 'wkhtmltoimage-binary'
 gem 'mini_magick'
 gem 'imgkit'
 gem 'asciiart'
+gem 'spinjs-rails'
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 

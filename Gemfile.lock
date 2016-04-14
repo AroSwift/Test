@@ -145,6 +145,8 @@ GEM
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
     slop (3.6.0)
+    spinjs-rails (1.4)
+      rails (>= 3.1)
     spring (1.6.4)
     sprockets (3.6.0)
       concurrent-ruby (~> 1.0)
@@ -186,6 +188,7 @@ DEPENDENCIES
   rest-client
   sass-rails (~> 5.0)
   simple_form
+  spinjs-rails
   spring
   sqlite3
   turbolinks

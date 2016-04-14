@@ -1,9 +1,9 @@
 .modal-header
   %h1 Train Neural Network
-.content
-  #first_image
+.container.content
+  .col-md-6
     = link_to neural_network_train_update_url(best_image: 1) do
       = image_tag "screenshot_1.png", width: 400, height: 400, class: "normal"
-  #second_image
+  .col-md-6
     = link_to neural_network_train_update_url(best_image: 2) do
       = image_tag "screenshot_2.png", width: 400, height: 400, class: "normal"
