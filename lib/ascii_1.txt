@@ -1,16 +1,19 @@
 +--------------------------------------------------+
-|.. .. ... ... .. .. .......... ...............o...|
-|.... ..  .. .. ...................................|
-|. .  ..  .. ...............o......................|
-|.................................................o|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oo.oooooooo.oooooooooooooooooooooooooooooooooooooo|
-|ooooo.oooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oo.oo...oooooo..oooooooo.ooooooooo..oooooooooo.ooo|
-|o. .. .  .   .   .. ..  ..  . ..    .. .... ..  ..|
-|o.                                               .|
-|o.                                               .|
+|o+ .      .   .                     ............+o|
+|o+                                  ......... . +o|
+|o+~.....~.....~..~~..~~~~~~~~~.~.~.......::+++++oo|
+|oo:::::~:....~~.~.~~~~~~.~~~~~~~~.~...   +oooooooo|
+|oo~:::~~:.  .    ......  . .  .          :oooooooo|
+|o+:::~~::.      .......... ..~~~..       :oooooooo|
+|oo:::~~~:     ..  . ........~::~..       +oooooooo|
+|oo~:::~::    ....~....  .~   ~           :oooooooo|
+|o+:~~:~::    ~~~::~..  ~~:.   .         .+oooooooo|
+|oo:~~~~~:    ~~::~     ..~               :oooooooo|
+|o+:::~:~+::::::+::~:~::::+~~~~~.~~~~~~~~~+oooooooo|
+|oo~:::~~:+o+oo+oooooooooooooo~~~~.o+++++++++++++oo|
+|oo~~:~~:+++o+o++++o++oo+ooooo~~~~.o+o+++++o++ooooo|
+|oo:~~~~:+oo+o+o+o++oo++o+oooo+++:~ooooo++ooooooooo|
+|o+:~::~~:+o++oooooooooooo+ooo:~~.~ooooooooo+oooooo|
+|oo:~~~~~+ooooooooooooooooooooo+ooooooooooooooooooo|
+|oo++++++oooooooooooooooooooooooooooooooooooooo+ooo|
 +--------------------------------------------------+

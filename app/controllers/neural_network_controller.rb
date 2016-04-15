@@ -21,7 +21,7 @@ class NeuralNetworkController < ApplicationController
 
   def show_websites
     # Read the output of the file
-    file = File.open("lib/output.txt", "r+")
+    file = File.open("./lib/output.txt", "r+")
     file_output = file.read
     file_output.squish
     file.close
