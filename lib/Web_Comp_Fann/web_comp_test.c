@@ -1,11 +1,11 @@
 //web_comp_test.c
 
 #include <stdio.h>
-
 #include "fann.h"
 
 int main()
 {
+
 	fann_type *calc_out;
 	unsigned int i;
 	int ret = 0;
@@ -35,7 +35,7 @@ int main()
 #ifdef FIXEDFANN
 	data = fann_read_train_from_file("web_comp_fixed.data");
 #else
-	data = fann_read_train_from_file("selection.data");
+	data = fann_read_train_from_file("selection.test");
 #endif
 
 	for(i = 0; i < fann_length_train_data(data); i++)
@@ -43,7 +43,7 @@ int main()
 		fann_reset_MSE(ann);
 		calc_out = fann_test(ann, data->input[i], data->output[i]);
 #ifdef FIXEDFANN
-		printf("Web Comp test (%d, %d) -> %d, should be %d, difference=%f\n",
+		printf("Web_Comp test (%d, %d) -> %d, should be %d, difference=%f\n",
 			   data->input[i][0], data->input[i][1], calc_out[0], data->output[i][0],
 			   (float) fann_abs(calc_out[0] - data->output[i][0]) / fann_get_multiplier(ann));
 
@@ -53,9 +53,16 @@ int main()
 			ret = -1;
 		}
 #else
-		printf("Web Comp test (%f, %f) -> %f, should be %f, difference=%f\n",
+		printf("web_comp test (%f, %f) -> %f, should be %f, difference=%f\n",
 			   data->input[i][0], data->input[i][1], calc_out[0], data->output[i][0],
 			   (float) fann_abs(calc_out[0] - data->output[i][0]));
+
+		//Web_Comp
+		double answer = fann_abs(calc_out[0] - data->output[0][0]);
+		FILE *output;
+		output = fopen("Web_Comp_Answer.txt","w");
+		fprintf(output, "%f", answer);
+		fclose(output);
 #endif
 	}
 
@@ -65,3 +72,12 @@ int main()
 
 	return ret;
 }
+
+
+
+
+
+
+
+
+

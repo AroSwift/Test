@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include "fann.h"
 
 int FANN_API test_callback(struct fann *ann, struct fann_train_data *train,
@@ -12,6 +11,9 @@ int FANN_API test_callback(struct fann *ann, struct fann_train_data *train,
 
 int main()
 {
+
+
+	//fann requirements
 	fann_type *calc_out;
 	const unsigned int num_input = 2;
 	const unsigned int num_output = 1;
@@ -29,7 +31,7 @@ int main()
 	printf("Creating network.\n");
 	ann = fann_create_standard(num_layers, num_input, num_neurons_hidden, num_output);
 
-	data = fann_read_train_from_file("selection.data");
+	data = fann_read_train_from_file("selection.train");
 
 	fann_set_activation_steepness_hidden(ann, 1);
 	fann_set_activation_steepness_output(ann, 1);
@@ -52,7 +54,7 @@ int main()
 	for(i = 0; i < fann_length_train_data(data); i++)
 	{
 		calc_out = fann_run(ann, data->input[i]);
-		printf("Web Comp test (%f,%f) -> %f, should be %f, difference=%f\n",
+		printf("Web_Comp test (%f,%f) -> %f, should be %f, difference=%f\n",
 			   data->input[i][0], data->input[i][1], calc_out[0], data->output[i][0],
 			   fann_abs(calc_out[0] - data->output[i][0]));
 	}
@@ -67,6 +69,8 @@ int main()
 	printf("Cleaning up.\n");
 	fann_destroy_train(data);
 	fann_destroy(ann);
+
+
 
 	return 0;
 }
