@@ -1,0 +1,12 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/floatfann.dir/floatfann.c.o"
+  "libfloatfann.pdb"
+  "libfloatfann.dylib"
+  "libfloatfann.2.2.0.dylib"
+  "libfloatfann.2.dylib"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/floatfann.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
