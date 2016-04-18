@@ -3,7 +3,7 @@
  *     Author: Alessandro Pietro Bardelli
  */
 #ifndef DISABLE_PARALLEL_FANN
-#include <omp.h>
+#include "omp.h"
 #include "parallel_fann.h"
 #include "config.h"
 #include "fann.h"

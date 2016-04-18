@@ -59,7 +59,7 @@ void writeOutput(ifstream& img, ofstream&output){
 }
 
 void callNN(bool chooseNN){
-	if(chooseNN) ? : testNN() : trainNN();
+	chooseNN ?  testNN() : trainNN();
 }
 
 
@@ -144,7 +144,7 @@ void testNN(){
         if(!ann)
         {
                 printf("Error creating ann --- ABORTING.\n");
-                return -1;
+               // return -1;
         }
 
         fann_print_connections(ann);
