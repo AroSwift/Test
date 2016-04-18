@@ -1,19 +1,8 @@
-+--------------------------------------------------+
-|oooooo:ooooooooooooooooooooooooooooooooooooooooooo|
-|ooo:oo:o:ooooooooooooooooooooooooooooooooooooooooo|
-|o. ...  :ooooooooooooooooooooooooooooooooooooooooo|
-|:   ....:ooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|oooooooooooooooooooooooooooooooooooooooooooooooooo|
-|ooo:oooooooooooooooooooooooooooooooooooooooooooooo|
-+--------------------------------------------------+
++--------------------+
+|+::~~~.~~~~.~~~~~~:+|
+|=~:~:~:~~::........:|
+|+~~~..........~~~. :|
+|+..~.     ..~~.....+|
+|=+++::+:~~~~:::+:++=|
+|o====oo+..~.:=+====o|
++--------------------+

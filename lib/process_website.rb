@@ -2,6 +2,7 @@ class ProcessWebsite
 
   require 'asciiart'
   require 'imgkit'
+  # require 'net/http'
 
   def initialize(url: nil, image_num: 1)
     @image_num = image_num
@@ -30,24 +31,38 @@ class ProcessWebsite
       url = "http://www." + chose_website
     end
 
-    kit = IMGKit.new(url, quality: 100, "crop-w" => 1280, "crop-h" => 720)
+    kit = IMGKit.new(url, quality: 30, "crop-w" => 1280, "crop-h" => 720)
     @file = "./lib/screenshot_#{@image_num}.png"
     kit.to_file(@file)
   end
 
   def convert_ascii
-    system "asciiart -c -w 50 #{@file} > ./lib/ascii_#{@image_num}.txt"
+    system "asciiart -c -w 20 #{@file} > ./lib/ascii_#{@image_num}.txt"
   end
 
   def valid?(url)
-    begin
-      # Determine validity of the url
-      response = RestClient.get url
-      # Code 200 indicates no errors accessing a webpage
-      return response.code == 200 ? true : false
-    rescue # There was an error, the url is probably not valid
-      return false
-    end
+    # Determine validity of the url
+    response = RestClient.get url
+    # Code 200 indicates no errors accessing a webpage
+    return false if response.nil?
+    return response.code == 200 ? true : false
+  rescue # There was an error, the url is probably not valid
+    return false
   end
+
+  # def valid?(url)
+  #   url = URI.parse(url_string)
+  #   req = Net::HTTP.new(url.host, url.port)
+  #   req.use_ssl = (url.scheme == 'https')
+  #   path = url.path if url.path.present?
+  #   res = req.request_head(path || '/')
+  #   if res.kind_of?(Net::HTTPRedirection)
+  #     url_exist?(res['location']) # Go after any redirect and make sure you can access the redirected URL
+  #   else
+  #     res.code[0] != "4" #false if http code starts with 4 - error on your side.
+  #   end
+  # rescue Errno::ENOENT
+  #   false #false if can't find the server
+  # end
 
 end
