@@ -54,7 +54,7 @@ void writeOutput(ifstream& img, ofstream&output){
 		temp.push_back(c);
 	}
 	for(int i =0; i < temp.size(); i++){
-		output << (int)temp[i];
+		output << (int)temp[i] << " ";
 	}
 }
 
