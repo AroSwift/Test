@@ -2,9 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "data.h"
-// #include "fann.h"
-// // #include "./src/floatfann.c"
-// #include "src/doublefann.c"
+#include "fann.h"
 
 void callNN(bool fileName);
 int FANN_API test_callback(struct fann *ann, struct fann_train_data *train,
