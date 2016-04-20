@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "data.h"
 // #include "fann.h"
-// // #include "./src/floatfann.c"
+#include "./src/floatfann.h"
 // #include "src/doublefann.c"
 
 void callNN(bool fileName);
