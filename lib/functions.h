@@ -13,4 +13,4 @@ int FANN_API test_callback(struct fann *ann, struct fann_train_data *train,
 void createOutputFile(Data* files, bool testNeural, char** superiorSite = NULL);
 void trainNN();
 void testNN();
-void writeOutput(ifstream& img, ofstream& output);
+void writeOutput(Data *files);
