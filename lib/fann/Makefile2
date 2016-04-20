@@ -1,0 +1,10 @@
+FLAGS = 
+CC = g++
+
+all: webComp
+
+webComp: webComp
+	$(CC) webComp.cpp
+
+clean:
+	rm -f a.out core webComp
