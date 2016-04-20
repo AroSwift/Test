@@ -11,8 +11,11 @@ class NeuralNetworkController < ApplicationController
     ProcessWebsite.new(url: params[:compare_websites][:web_page_link_1], image_num: 1)
     ProcessWebsite.new(url: params[:compare_websites][:web_page_link_2], image_num: 2)
 
+    # Call C++ file to convert to ascii
+    # system "lib/fann-master/examples/webComp"
+
     # Call the neural network
-    system "lib/a.out"
+    system "lib/fann-master/examples/web_comp_test"
 
     respond_to do |format|
       format.html { redirect_to neural_network_show_websites_path }
@@ -21,7 +24,7 @@ class NeuralNetworkController < ApplicationController
 
   def show_websites
     # Read the output of the file
-    file = File.open("./lib/output.txt", "r+")
+    file = File.open("./lib/fann-master/examples/Web_Comp_Answer.txt", "r+")
     file_output = file.read
     file_output.squish
     file.close
@@ -48,7 +51,7 @@ class NeuralNetworkController < ApplicationController
 
   def train_update
     # Call neural network with true indicating that we want to train
-    system "lib/a.out {params[:best_image]}"
+    system "lib/fann-master/examples/web_comp_train {params[:best_image]}"
 
     respond_to do |format|
       format.html { redirect_to neural_network_train_path }
