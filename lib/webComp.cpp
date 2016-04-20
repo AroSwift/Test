@@ -22,8 +22,6 @@ int main(int argc, char* argv[]){
 		createOutputFile(files, true);
 	}
 	callNN(testNN);
-	
-
 }
 
 int FANN_API test_callback(struct fann *ann, struct fann_train_data *train, unsigned int max_epochs, unsigned int epochs_between_reports, float desired_error, unsigned int epochs){
@@ -47,7 +45,8 @@ void writeOutput(Data *files){
 		tempF1.push_back(f1);
 		tempF2.push_back(f2);
 	}
-	for(int i =0; i < tempF1.size(); i++){
+	int z = tempF1.size();
+	for(int i =0; i < z; i++){
 		if(i=0)
 			files->output << (int)tempF1[i] << " " << (int)tempF2[i];
 		else 
