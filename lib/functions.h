@@ -4,7 +4,7 @@
 #include "data.h"
 // #include "fann.h"
 // // #include "./src/floatfann.c"
-#include "src/doublefann.c"
+// #include "src/doublefann.c"
 
 void callNN(bool fileName);
 int FANN_API test_callback(struct fann *ann, struct fann_train_data *train,

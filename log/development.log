@@ -1,0 +1,136 @@
+
+
+Started GET "/" for ::1 at 2016-04-18 14:54:54 -0400
+Processing by NeuralNetworkController#index as HTML
+  Rendered neural_network/index.html.haml within layouts/application (9.6ms)
+Completed 200 OK in 2212ms (Views: 2160.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-18 14:55:47 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (339.5ms)
+Completed 200 OK in 486ms (Views: 485.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-04-18 14:55:48 -0400
+Processing by NeuralNetworkController#index as HTML
+  Rendered neural_network/index.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 126ms (Views: 125.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-18 16:11:01 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (13.8ms)
+Completed 200 OK in 668ms (Views: 658.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/neural_network/compare_websites_update" for ::1 at 2016-04-18 16:11:21 -0400
+Processing by NeuralNetworkController#compare_websites_update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mZQGPZ67kcSLC0lonVt0ymjZPIyJKNRbxUDY0WQCzLLF7zB+9b6ZSEitVm4J65cEs8sec8GCzT9cGze+qys2eg==", "compare_websites"=>{"web_page_link_1"=>"bedbathandbeyond.com", "web_page_link_2"=>"syndicate.org"}, "commit"=>"Compare Wesbsites"}
+Redirected to http://localhost:3000/neural_network/show_websites
+Completed 302 Found in 76269ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-18 16:12:38 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (159.3ms)
+Completed 200 OK in 619ms (Views: 573.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-81c7480cc07e891434f4694b94c0f19986cf470f0cc2781e5bfe5963c2a15e1d.png" for ::1 at 2016-04-18 16:12:39 -0400
+
+
+Started GET "/assets/screenshot_2-602f8953ffab72775e22d29762a54e50057695638148c54b603c9ee4fecd1912.png" for ::1 at 2016-04-18 16:12:39 -0400
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-18 16:16:21 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (11.1ms)
+Completed 200 OK in 279ms (Views: 278.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-04-18 16:16:39 -0400
+Processing by NeuralNetworkController#index as HTML
+  Rendered neural_network/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 119ms (Views: 118.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-18 16:16:40 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (6.9ms)
+Completed 200 OK in 187ms (Views: 185.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/neural_network/compare_websites_update" for ::1 at 2016-04-18 16:16:54 -0400
+Processing by NeuralNetworkController#compare_websites_update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ob2CVPRqCSX2VPbh9XaW20zrDC0bf9DFFpAUmZpK/gn9xrQXn28BqTXy6edhxnUVl/ku0lPVyaGPy/v2VWMEwQ==", "compare_websites"=>{"web_page_link_1"=>"linkedin.com", "web_page_link_2"=>"lordofrings.com"}, "commit"=>"Compare Wesbsites"}
+Redirected to http://localhost:3000/neural_network/show_websites
+Completed 302 Found in 21605ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-18 16:17:16 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (31.4ms)
+Completed 200 OK in 257ms (Views: 255.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-ee951bae1ef898cf7277b235f8c5842edad4389bceafae4a34ac6bd5abcadb2a.png" for ::1 at 2016-04-18 16:17:16 -0400
+
+
+Started GET "/assets/screenshot_2-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.png" for ::1 at 2016-04-18 16:17:16 -0400
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-18 16:19:51 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (7.3ms)
+Completed 200 OK in 222ms (Views: 206.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/neural_network/compare_websites_update" for ::1 at 2016-04-18 16:20:04 -0400
+Processing by NeuralNetworkController#compare_websites_update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EpwJP3Aq+278idIXW5aqGapE6uk4Ma9oorSTwNNF8ihO5z98Gy/z4j8vzRHPJknXcVbIFnCbtgw773yvHGwI4A==", "compare_websites"=>{"web_page_link_1"=>"lordofring.com", "web_page_link_2"=>"yosu.co"}, "commit"=>"Compare Wesbsites"}
+Redirected to http://localhost:3000/neural_network/show_websites
+Completed 302 Found in 726957ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-18 16:32:11 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (80.5ms)
+Completed 200 OK in 716ms (Views: 701.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-b9099b0cb16f8a1b041f1edd3830122fd1db2c45e42bf8a85631dfa387615bef.png" for ::1 at 2016-04-18 16:32:13 -0400
+
+
+Started GET "/assets/screenshot_2-76b2ba72d71245008a4f953d2cc2bc62f2ece5e6c7eb2d5d2d9cc01225bb98cd.png" for ::1 at 2016-04-18 16:32:13 -0400
+
+
+Started GET "/" for ::1 at 2016-04-18 16:32:36 -0400
+Processing by NeuralNetworkController#index as HTML
+  Rendered neural_network/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 313ms (Views: 312.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-18 16:32:37 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (16.4ms)
+Completed 200 OK in 176ms (Views: 175.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/neural_network/compare_websites_update" for ::1 at 2016-04-18 16:33:05 -0400
+Processing by NeuralNetworkController#compare_websites_update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Tg4o2idy9ghoyUU+MH+qMdBH4dJIz3mvANQivS54o8USdR6ZTHf+hKtvWjikz0n/C1XDLQBlYMuZj83S4VFZDQ==", "compare_websites"=>{"web_page_link_1"=>"youtube.com", "web_page_link_2"=>"lordofring.com"}, "commit"=>"Compare Wesbsites"}
+Redirected to http://localhost:3000/neural_network/show_websites
+Completed 302 Found in 29525ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-18 16:33:35 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (33.8ms)
+Completed 200 OK in 365ms (Views: 363.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-a49d1d9d6279e256907c1e4051c3fbacdfa7e943ddb51fcfac9623b70eb87fb1.png" for ::1 at 2016-04-18 16:33:36 -0400
+
+
+Started GET "/assets/screenshot_2-5f073880faaf00c1962ec8cdeecc51feb525442c30ff7d4620142686dfb365c3.png" for ::1 at 2016-04-18 16:33:36 -0400
