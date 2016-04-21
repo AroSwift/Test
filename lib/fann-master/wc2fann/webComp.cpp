@@ -3,7 +3,7 @@
 #include <vector>
 #include <cstddef>
 #include "functions.h"
-#include "fann.h"
+//#include "fann.h"
 
 using namespace std;
 
@@ -12,22 +12,25 @@ int main(int argc, char* argv[]){
 	bool testNN;
 	if(argc == 2){
 		testNN = false;
-		string outputName = "./lib/selection.train";
-		files = new Data("./lib/ascii_1.txt", "./lib/ascii_2.txt", outputName);
+		string outputName = "./lib/fann/wc2fann/data/selection.train";
+		files = new Data("./lib/fann/wc2fann/data/ascii_1.txt",
+											"./lib/fann/wc2fann/data/ascii_2.txt", outputName);
 		createOutputFile(files, testNN, argv);
 	}
 	else{
 		testNN = true;
-		files = new Data("./lib/ascii_1.txt", "./lib/ascii_2.txt", "./lib/selection.test");
+		files = new Data("./lib/fann/wc2fann/data/ascii_1.txt",
+		 								"./lib/fann/wc2fann/data/ascii_2.txt",
+										"./lib/selection.test");
 		createOutputFile(files, true);
 	}
-	callNN(testNN);
+	//callNN(testNN);
 }
 
-int FANN_API test_callback(struct fann *ann, struct fann_train_data *train, unsigned int max_epochs, unsigned int epochs_between_reports, float desired_error, unsigned int epochs){
+/*int FANN_API test_callback(struct fann *ann, struct fann_train_data *train, unsigned int max_epochs, unsigned int epochs_between_reports, float desired_error, unsigned int epochs){
 	printf("Epochs     %8d. MSE: %.5f. Desired-MSE: %.5f\n", epochs, fann_get_MSE(ann), desired_error);
     return 0;
-}
+}*/
 
 void createOutputFile(Data* files, bool testNeural, char** superiorSite){
 	writeOutput(files);
@@ -47,19 +50,19 @@ void writeOutput(Data *files){
 	}
 	int z = tempF1.size();
 	for(int i =0; i < z; i++){
-		if(i=0)
+		if(i==0)
 			files->output << (int)tempF1[i] << " " << (int)tempF2[i];
-		else 
+		else
 			files->output << " " << (int)tempF1[i] << " " << (int)tempF2[i];
 	}
 }
 
-void callNN(bool chooseNN){
+/*void callNN(bool chooseNN){
 	chooseNN ? testNN() : trainNN();
-}
+}*/
 
 
-void trainNN(){
+/*void trainNN(){
 
     //fann requirements
 	fann_type *calc_out;
@@ -187,4 +190,4 @@ void testNN(){
 
 //        return ret;
 }
-
+*/
