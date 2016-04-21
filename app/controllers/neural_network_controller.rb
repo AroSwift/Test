@@ -12,7 +12,7 @@ class NeuralNetworkController < ApplicationController
     ProcessWebsite.new(url: params[:compare_websites][:web_page_link_2], image_num: 2)
 
     # Call C++ file to convert to ascii
-    # system "lib/fann/wc2fann/data/webComp"
+    system "lib/fann/wc2fann/webComp.out"
 
     # Call the neural network
     system "lib/fann/wc2fann/web_comp_test"
@@ -24,7 +24,7 @@ class NeuralNetworkController < ApplicationController
 
   def show_websites
     # Read the output of the file
-    file = File.open("./lib/fann/wc2fann/Web_Comp_Answer.txt", "r+")
+    file = File.open("./lib/fann/wc2fann/data/Web_Comp_Answer.txt", "r+")
     file_output = file.read
     file_output.squish
     file.close
