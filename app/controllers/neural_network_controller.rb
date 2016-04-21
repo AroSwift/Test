@@ -15,7 +15,7 @@ class NeuralNetworkController < ApplicationController
     # system "lib/fann/wc2fann/data/webComp"
 
     # Call the neural network
-    system "lib/fann/wc2fann/data/web_comp_test"
+    system "lib/fann/wc2fann/web_comp_test"
 
     respond_to do |format|
       format.html { redirect_to neural_network_show_websites_path }
@@ -24,7 +24,7 @@ class NeuralNetworkController < ApplicationController
 
   def show_websites
     # Read the output of the file
-    file = File.open("./lib/fann/wc2fann/data/Web_Comp_Answer.txt", "r+")
+    file = File.open("./lib/fann/wc2fann/Web_Comp_Answer.txt", "r+")
     file_output = file.read
     file_output.squish
     file.close
@@ -51,7 +51,7 @@ class NeuralNetworkController < ApplicationController
 
   def train_update
     # Call neural network with true indicating that we want to train
-    system "lib/fann/wc2fann/data/web_comp_train {params[:best_image]}"
+    system "lib/fann/wc2fann/web_comp_train #{params[:best_image]}"
 
     respond_to do |format|
       format.html { redirect_to neural_network_train_path }

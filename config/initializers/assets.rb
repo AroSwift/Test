@@ -11,5 +11,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 # Rails.application.config.assets.paths << Rails.root.join("lib")
-Rails.application.config.assets.paths << Rails.root.join("lib/data")
+Rails.application.config.assets.paths << Rails.root.join("lib/fann/wc2fann/data")
 Rails.application.config.assets.precompile += %w( screenshot_1.png screenshot_2.png )
