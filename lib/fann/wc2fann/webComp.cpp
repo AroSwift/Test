@@ -21,7 +21,7 @@ int main(int argc, char* argv[]){
 		testNN = true;
 		files = new Data("./lib/fann/wc2fann/data/ascii_1.txt",
 		 								"./lib/fann/wc2fann/data/ascii_2.txt",
-										"./lib/selection.test");
+										"../lib/fann/wc2fann/data/selection.test");
 		createOutputFile(files, true);
 	}
 	//callNN(testNN);
