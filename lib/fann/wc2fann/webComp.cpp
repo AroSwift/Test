@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdlib>
-#include <vector>
+#include <queue>
 #include <cstddef>
 #include "functions.h"
 //#include "fann.h"
@@ -21,7 +21,7 @@ int main(int argc, char* argv[]){
 		testNN = true;
 		files = new Data("./lib/fann/wc2fann/data/ascii_1.txt",
 		 								"./lib/fann/wc2fann/data/ascii_2.txt",
-										"../lib/fann/wc2fann/data/selection.test");
+										"./lib/fann/wc2fann/data/selection.test");
 		createOutputFile(files, true);
 	}
 	//callNN(testNN);
@@ -40,20 +40,21 @@ void createOutputFile(Data* files, bool testNeural, char** superiorSite){
 }
 
 void writeOutput(Data *files){
-	vector<char> tempF1, tempF2;
+	queue<char> tempF1, tempF2;
 	char f1, f2;
 	while(files->imgOne.get(f1) && files->imgTwo.get(f2)){
 		files->imgOne.ignore(1, '\n');
 		files ->imgTwo.ignore(1, '\n');
-		tempF1.push_back(f1);
-		tempF2.push_back(f2);
+		tempF1.push(f1);
+		tempF2.push(f2);
 	}
-	int z = tempF1.size();
-	for(int i =0; i < z; i++){
-		if(i==0)
-			files->output << (int)tempF1[i] << " " << (int)tempF2[i];
-		else
-			files->output << " " << (int)tempF1[i] << " " << (int)tempF2[i];
+	files->output << (int)tempF1.front() << " " << (int)tempF2.front();
+	tempF1.pop();
+	tempF2.pop();
+	while(!tempF1.empty() && !tempF2.empty()){
+			files->output << " " << (int)tempF1.front() << " " << (int)tempF2.front();
+			tempF1.pop();
+			tempF2.pop();
 	}
 }
 
