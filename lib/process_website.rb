@@ -2,7 +2,6 @@ class ProcessWebsite
 
   require 'asciiart'
   require 'imgkit'
-  # require 'net/http'
 
   def initialize(url: nil, image_num: 1)
     @image_num = image_num
