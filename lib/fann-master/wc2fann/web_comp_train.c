@@ -3,7 +3,7 @@
 #include "fann.h"
 
 int FANN_API test_callback(struct fann *ann, struct fann_train_data *train,
-	unsigned int max_epochs, unsigned int epochs_between_reports, 
+	unsigned int max_epochs, unsigned int epochs_between_reports,
 	float desired_error, unsigned int epochs)
 {
 	printf("Epochs     %8d. MSE: %.5f. Desired-MSE: %.5f\n", epochs, fann_get_MSE(ann), desired_error);
@@ -29,7 +29,7 @@ int main()
 	printf("Creating network.\n");
 	ann = fann_create_standard(num_layers, num_input, num_neurons_hidden, num_output);
 
-	data = fann_read_train_from_file("selection.train");
+	data = fann_read_train_from_file("selection.data");
 
 	fann_set_activation_steepness_hidden(ann, 1);
 	fann_set_activation_steepness_output(ann, 1);
@@ -40,10 +40,11 @@ int main()
 	fann_set_train_stop_function(ann, FANN_STOPFUNC_BIT);
 	fann_set_bit_fail_limit(ann, 0.01f);
 
+	//The algorithim can be changed for another specified outcome
 	fann_set_training_algorithm(ann, FANN_TRAIN_RPROP);
 
 	fann_init_weights(ann, data);
-	
+
 	printf("Training network.\n");
 	fann_train_on_data(ann, data, max_epochs, epochs_between_reports, desired_error);
 
