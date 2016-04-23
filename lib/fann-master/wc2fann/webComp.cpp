@@ -167,7 +167,7 @@ void trainNN(){
 void testNN(){
         fann_type *calc_out;
         unsigned int i;
-        //int ret = 0;
+        int ret = 0;
 
         struct fann *ann;
         struct fann_train_data *data;
@@ -182,8 +182,8 @@ void testNN(){
 
         if(!ann)
         {
-                printf("Error creating ann --- ABORTING.\n");
-               // return -1;
+        	printf("Error creating ann --- ABORTING.\n");
+        	exit(-1);
         }
 
         fann_print_connections(ann);
@@ -229,5 +229,5 @@ void testNN(){
         fann_destroy_train(data);
         fann_destroy(ann);
 
-//        return ret;
+        exit(ret);
 }

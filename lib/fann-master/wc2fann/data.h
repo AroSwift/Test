@@ -10,7 +10,7 @@ class Data{
 	public:
 		ifstream imgOne, imgTwo;
 		ofstream output;
-	
+
 		Data(string nameOne, string nameTwo, string outputName);
 		~Data();
 };
@@ -19,7 +19,7 @@ Data::Data(string nameOne, string nameTwo, string outputName){
 	imgOne.open(nameOne.c_str());
 	imgTwo.open(nameTwo.c_str());
 	output.open(outputName.c_str());
-	output << 4 << " " << 2 << " " << 1 << endl;
+	output << 2 << " " << 800 << " " << 1 << endl;
 }
 Data::~Data(){
 	imgOne.close();
