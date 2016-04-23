@@ -81,12 +81,14 @@ void writeOutput(Data *files){
 		tempF2.push(f2);
 	}
 
-	files->output << (int)tempF1.front() << " " << (int)tempF2.front();
+	files->output << ((((int)tempF1.front()) > 50) ? 1:0)
+	 							<< " " << ((((int)tempF2.front()) > 50) ? 1:0);
 	tempF1.pop();
 	tempF2.pop();
 
 	while(!tempF1.empty() && !tempF2.empty()){
-			files->output << " " << (int)tempF1.front() << " " << (int)tempF2.front();
+			files->output << " " << ((((int)tempF1.front()) > 50) ? 1:0)
+										<< " " << ((((int)tempF2.front()) > 50) ? 1:0);
 			tempF1.pop();
 			tempF2.pop();
 	}
