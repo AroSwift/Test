@@ -1,0 +1,9 @@
++--------------------+
+| ..            .... |
+|++++++.+++oo+++ooooo|
+|+o+++ooooooooooooooo|
+|o+oooooooooooooooooo|
+|ooooooooooooo++ooooo|
+|oooooooooooo++++oooo|
+|oooooooooooooooooooo|
++--------------------+
