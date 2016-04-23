@@ -831,3 +831,298 @@ Started GET "/assets/screenshot_1-ff8ae3ad9d052ba812843981879f5361a0f70917b74bc3
 
 
 Started GET "/assets/screenshot_2-c9d3d03a68babe15d2fa94569eb61ebe90ebbc7a4c59a479a6b6954846e0f156.png" for ::1 at 2016-04-23 00:37:54 -0400
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-23 01:46:44 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (623.2ms)
+Completed 200 OK in 78402ms (Views: 981.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-23 01:48:11 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (509.8ms)
+Completed 200 OK in 624ms (Views: 621.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/neural_network/compare_websites_update" for ::1 at 2016-04-23 01:48:21 -0400
+Processing by NeuralNetworkController#compare_websites_update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"acraqvGoXr/2/Lc5FW24AgSe/8tWi5PBi72EnjSQRph9FGQ+GdV4CvDTCStWYBV2DjRyhnRxAdQ3EIxYMASq2w==", "compare_websites"=>{"web_page_link_1"=>"volt.com", "web_page_link_2"=>""}, "commit"=>"Compare Wesbsites"}
+Redirected to http://localhost:3000/neural_network/show_websites
+Completed 302 Found in 30796ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-23 01:48:52 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (27.2ms)
+Completed 200 OK in 157ms (Views: 155.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-5fd0c83498be0aa595d15cd65f9f5907bbbef4c7be8ed83f6ad52b14136d59a2.png" for ::1 at 2016-04-23 01:48:53 -0400
+
+
+Started GET "/assets/screenshot_2-c769fe42791326dd8339ded41b423d3b78799b19196de30f6487b7060fa03062.png" for ::1 at 2016-04-23 01:48:53 -0400
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-23 01:51:36 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (11.9ms)
+Completed 200 OK in 152ms (Views: 150.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.self-f5a90d20e5090d64763dcfad94d947343b9898d7a030bb466e9247e00ca06c27.css?body=1" for ::1 at 2016-04-23 01:51:37 -0400
+
+
+Started GET "/assets/neural_network.self-cbd992dcd507d8167dee48a3e4945ce08d229eb19b36bba765a5d4061e9aadbf.css?body=1" for ::1 at 2016-04-23 01:51:37 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-04-23 01:51:37 -0400
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-603f330c29af013305325569c8c75d03d688963abd8cde4fffec17b5ce417bfb.css?body=1" for ::1 at 2016-04-23 01:51:37 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-04-23 01:51:37 -0400
+
+
+Started GET "/assets/twitter-bootstrap-static/sprites.self-556e1741ff6d22f63fe0be609679c8f06ffc45eabc31836b6b785475bb283b84.css?body=1" for ::1 at 2016-04-23 01:51:37 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-04-23 01:51:37 -0400
+
+
+Started GET "/assets/spinner.self-a2f151e13eb7ecaa7455c71c644b24b349e31d5cea21f90c94d1be6354e49ee7.css?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/neural_network.self-216d04c4f0e19cbdfd720f5a10220d470adc36ef49d4cccd753c9374a8bba9e4.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/screenshot_2-c769fe42791326dd8339ded41b423d3b78799b19196de30f6487b7060fa03062.png" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/assets/screenshot_1-5fd0c83498be0aa595d15cd65f9f5907bbbef4c7be8ed83f6ad52b14136d59a2.png" for ::1 at 2016-04-23 01:51:38 -0400
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-23 01:51:46 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (9.7ms)
+Completed 200 OK in 112ms (Views: 111.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-603f330c29af013305325569c8c75d03d688963abd8cde4fffec17b5ce417bfb.css?body=1" for ::1 at 2016-04-23 01:51:46 -0400
+
+
+Started GET "/assets/twitter-bootstrap-static/sprites.self-556e1741ff6d22f63fe0be609679c8f06ffc45eabc31836b6b785475bb283b84.css?body=1" for ::1 at 2016-04-23 01:51:46 -0400
+
+
+Started GET "/assets/bootstrap_and_overrides.self-f5a90d20e5090d64763dcfad94d947343b9898d7a030bb466e9247e00ca06c27.css?body=1" for ::1 at 2016-04-23 01:51:46 -0400
+
+
+Started GET "/assets/neural_network.self-cbd992dcd507d8167dee48a3e4945ce08d229eb19b36bba765a5d4061e9aadbf.css?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/spinner.self-a2f151e13eb7ecaa7455c71c644b24b349e31d5cea21f90c94d1be6354e49ee7.css?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/neural_network.self-216d04c4f0e19cbdfd720f5a10220d470adc36ef49d4cccd753c9374a8bba9e4.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/screenshot_2-c769fe42791326dd8339ded41b423d3b78799b19196de30f6487b7060fa03062.png" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/assets/screenshot_1-5fd0c83498be0aa595d15cd65f9f5907bbbef4c7be8ed83f6ad52b14136d59a2.png" for ::1 at 2016-04-23 01:51:47 -0400
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-23 01:52:07 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (9.4ms)
+Completed 200 OK in 107ms (Views: 106.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-603f330c29af013305325569c8c75d03d688963abd8cde4fffec17b5ce417bfb.css?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter-bootstrap-static/sprites.self-556e1741ff6d22f63fe0be609679c8f06ffc45eabc31836b6b785475bb283b84.css?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/bootstrap_and_overrides.self-f5a90d20e5090d64763dcfad94d947343b9898d7a030bb466e9247e00ca06c27.css?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/spinner.self-a2f151e13eb7ecaa7455c71c644b24b349e31d5cea21f90c94d1be6354e49ee7.css?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/neural_network.self-cbd992dcd507d8167dee48a3e4945ce08d229eb19b36bba765a5d4061e9aadbf.css?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/neural_network.self-216d04c4f0e19cbdfd720f5a10220d470adc36ef49d4cccd753c9374a8bba9e4.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/screenshot_1-5fd0c83498be0aa595d15cd65f9f5907bbbef4c7be8ed83f6ad52b14136d59a2.png" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/screenshot_2-c769fe42791326dd8339ded41b423d3b78799b19196de30f6487b7060fa03062.png" for ::1 at 2016-04-23 01:52:08 -0400
+
+
+Started GET "/assets/screenshot_1-5fd0c83498be0aa595d15cd65f9f5907bbbef4c7be8ed83f6ad52b14136d59a2.png" for ::1 at 2016-04-23 01:52:08 -0400

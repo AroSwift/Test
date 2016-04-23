@@ -35,6 +35,7 @@ class ProcessWebsite
     @file = "./lib/fann/wc2fann/data/screenshot_#{@image_num}.png"
     kit.to_file(@file)
 
+    # Ensure a image was retrieved and saved properly
     if File.zero?(@file)
       download_image(chose_website)
     end
