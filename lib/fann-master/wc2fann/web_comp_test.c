@@ -15,9 +15,9 @@ int main()
 	printf("Creating network.\n");
 
 #ifdef FIXEDFANN
-	ann = fann_create_from_file("web_comp_fixed.net");
+	ann = fann_create_from_file("./lib/fann/wc2fann/web_comp_fixed.net");
 #else
-	ann = fann_create_from_file("web_comp_config.net");
+	ann = fann_create_from_file("./lib/fann/wc2fann/web_comp_config.net");
 #endif
 
 	if(!ann)
@@ -32,9 +32,9 @@ int main()
 	printf("Testing network.\n");
 
 #ifdef FIXEDFANN
-	data = fann_read_train_from_file("web_comp_fixed.data");
+	data = fann_read_train_from_file("./lib/fann/wc2fann/web_comp_fixed.data");
 #else
-	data = fann_read_train_from_file("selection.data");
+	data = fann_read_train_from_file("./lib/fann/wc2fann/data/selection.test");
 #endif
 
 	for(i = 0; i < fann_length_train_data(data); i++)
@@ -59,7 +59,7 @@ int main()
 		//Web_Comp
 		double answer = fann_abs(calc_out[0] - data->output[0][0]);
 		FILE *output;
-		output = fopen("Web_Comp_Answer.txt","w");
+		output = fopen("./lib/fann/wc2fann/data/Web_Comp_Answer.txt","w");
 		fprintf(output, "%f", answer);
 		fclose(output);
 #endif

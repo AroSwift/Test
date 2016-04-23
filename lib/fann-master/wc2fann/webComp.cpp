@@ -1,33 +1,80 @@
+/*
+Kirolos Shahat, Aaron Barlow, David DaSilva
+webComp.cpp
+The purpose of this program is to open up two files titled
+'ascii_1.txt' and 'ascii_2.txt' and convert those images into
+their appropriate number values and print those numbers into a
+created output file titled either 'selection.train' or
+'selection.test' depending on if a command line argument was given
+or not. If a command line argument was given, the argument would be an int
+which represents the superior website to choose indicating that the Neural
+Network would still be in training and that number needs to be printed in the
+output file 'selection.train'
+The first line of both output files is the topology for the Neural network.
+*/
+
+
+
+
+//the header files used in the program
 #include <iostream>
 #include <cstdlib>
-#include <vector>
+#include <queue>
 #include <cstddef>
 #include "functions.h"
-#include "fann.h"
+//#include "fann.h"
 
 using namespace std;
 
+//the command line arguments. Can either be 1 or 2 arguments
 int main(int argc, char* argv[]){
 	Data *files;
-	bool testNN;
+	//Defining the names of the ascii images as strings to be called later
+	string asciiOne = "./lib/fann/wc2fann/data/ascii_1.txt";
+	string asciiTwo = "./lib/fann/wc2fann/data/ascii_2.txt";
+	//bool testNN;
+
+	//if there is something added with the program executable
+	//then it is the superior image meaning that the NN is still
+	//in training.
 	if(argc == 2){
-		testNN = false;
-		string outputName = "./lib/selection.train";
-		files = new Data("./lib/ascii_1.txt", "./lib/ascii_2.txt", outputName);
-		createOutputFile(files, testNN, argv);
+		//testNN = false;
+
+		//calling the constructor for the class Data with the three
+		//image names that are associated. This opens three files with
+		//the names associated
+		files = new Data(asciiOne, asciiTwo,
+											"./lib/fann/wc2fann/data/selection.train");
+		//calls the createOutputFile file function which converts each values
+		//in each ascii text file into it's appropriate number value and writes
+		//it to 'selection.train' is also passed a boolean so that
+		//it can distinguish between either training or testing, and the
+		//value that the NN should be choosing and writes that into the file aswell
+		createOutputFile(files, false, argv); //if NN is called change
+		//false to testNN and remove the comments above and below
 	}
+	//there are no command line arguments and the NN is being tested
 	else{
-		testNN = true;
-		files = new Data("./lib/ascii_1.txt", "./lib/ascii_2.txt", "./lib/selection.test");
+		//testNN = true;
+
+		//calling the constructor for the class Data with the three
+		//image names that are associated. This opens three files with
+		//the names associated
+		files = new Data(asciiOne, asciiTwo,
+											"./lib/fann/wc2fann/data/selection.test");
+		//calls the createOutputFile file function which converts each values
+		//in each ascii text file into it's appropriate number value and writes
+		//it to 'selection.train' is also passed a boolean so that
+		//it can distinguish between either training or testing
 		createOutputFile(files, true);
 	}
-	callNN(testNN);
+	//callNN(testNN);
 }
 
-int FANN_API test_callback(struct fann *ann, struct fann_train_data *train, unsigned int max_epochs, unsigned int epochs_between_reports, float desired_error, unsigned int epochs){
+/*int FANN_API test_callback(struct fann *ann, struct fann_train_data *train, unsigned int max_epochs, unsigned int epochs_between_reports, float desired_error, unsigned int epochs){
 	printf("Epochs     %8d. MSE: %.5f. Desired-MSE: %.5f\n", epochs, fann_get_MSE(ann), desired_error);
     return 0;
-}
+}*/
 
 void createOutputFile(Data* files, bool testNeural, char** superiorSite){
 	writeOutput(files);
@@ -36,30 +83,30 @@ void createOutputFile(Data* files, bool testNeural, char** superiorSite){
 	delete files;
 }
 
-void writeOutput(Data *files){
-	vector<char> tempF1, tempF2;
+queue<char> tempF1, tempF2;
 	char f1, f2;
 	while(files->imgOne.get(f1) && files->imgTwo.get(f2)){
 		files->imgOne.ignore(1, '\n');
 		files ->imgTwo.ignore(1, '\n');
-		tempF1.push_back(f1);
-		tempF2.push_back(f2);
+		tempF1.push(f1);
+		tempF2.push(f2);
 	}
-	int z = tempF1.size();
-	for(int i =0; i < z; i++){
-		if(i=0)
-			files->output << (int)tempF1[i] << " " << (int)tempF2[i];
-		else 
-			files->output << " " << (int)tempF1[i] << " " << (int)tempF2[i];
+	files->output << (int)tempF1.front() << " " << (int)tempF2.front();
+	tempF1.pop();
+	tempF2.pop();
+	while(!tempF1.empty() && !tempF2.empty()){
+			files->output << " " << (int)tempF1.front() << " " << (int)tempF2.front();
+			tempF1.pop();
+			tempF2.pop();
 	}
 }
 
-void callNN(bool chooseNN){
+/*void callNN(bool chooseNN){
 	chooseNN ? testNN() : trainNN();
-}
+}*/
 
 
-void trainNN(){
+/*void trainNN(){
 
     //fann requirements
 	fann_type *calc_out;
@@ -187,4 +234,4 @@ void testNN(){
 
 //        return ret;
 }
-
+*/
