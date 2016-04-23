@@ -10,6 +10,6 @@ void callNN(bool fileName);
         unsigned int max_epochs, unsigned int epochs_between_reports,
         float desired_error, unsigned int epochs);*/
 void createOutputFile(Data* files, bool testNeural, char** superiorSite = NULL);
-//void trainNN();
-//void testNN();
+void trainNN();
+void testNN();
 void writeOutput(Data *files);

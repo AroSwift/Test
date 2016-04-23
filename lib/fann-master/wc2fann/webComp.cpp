@@ -13,16 +13,12 @@ output file 'selection.train'
 The first line of both output files is the topology for the Neural network.
 */
 
-
-
-
 //the header files used in the program
 #include <iostream>
 #include <cstdlib>
 #include <queue>
 #include <cstddef>
 #include "functions.h"
-//#include "fann.h"
 
 using namespace std;
 
@@ -32,13 +28,13 @@ int main(int argc, char* argv[]){
 	//Defining the names of the ascii images as strings to be called later
 	string asciiOne = "./lib/fann/wc2fann/data/ascii_1.txt";
 	string asciiTwo = "./lib/fann/wc2fann/data/ascii_2.txt";
-	//bool testNN;
+	bool testNN;
 
 	//if there is something added with the program executable
 	//then it is the superior image meaning that the NN is still
 	//in training.
 	if(argc == 2){
-		//testNN = false;
+		testNN = false;
 
 		//calling the constructor for the class Data with the three
 		//image names that are associated. This opens three files with
@@ -50,12 +46,12 @@ int main(int argc, char* argv[]){
 		//it to 'selection.train' is also passed a boolean so that
 		//it can distinguish between either training or testing, and the
 		//value that the NN should be choosing and writes that into the file aswell
-		createOutputFile(files, false, argv); //if NN is called change
+		createOutputFile(files, testNN, argv); //if NN is called change
 		//false to testNN and remove the comments above and below
 	}
 	//there are no command line arguments and the NN is being tested
 	else{
-		//testNN = true;
+		testNN = true;
 
 		//calling the constructor for the class Data with the three
 		//image names that are associated. This opens three files with
@@ -66,9 +62,9 @@ int main(int argc, char* argv[]){
 		//in each ascii text file into it's appropriate number value and writes
 		//it to 'selection.train' is also passed a boolean so that
 		//it can distinguish between either training or testing
-		createOutputFile(files, true);
+		createOutputFile(files, testNN);
 	}
-	//callNN(testNN);
+	callNN(testNN);
 }
 
 /*int FANN_API test_callback(struct fann *ann, struct fann_train_data *train, unsigned int max_epochs, unsigned int epochs_between_reports, float desired_error, unsigned int epochs){
@@ -83,7 +79,8 @@ void createOutputFile(Data* files, bool testNeural, char** superiorSite){
 	delete files;
 }
 
-queue<char> tempF1, tempF2;
+void writeOutput(Data *files){
+  queue<char> tempF1, tempF2;
 	char f1, f2;
 	while(files->imgOne.get(f1) && files->imgTwo.get(f2)){
 		files->imgOne.ignore(1, '\n');
@@ -101,12 +98,12 @@ queue<char> tempF1, tempF2;
 	}
 }
 
-/*void callNN(bool chooseNN){
+void callNN(bool chooseNN){
 	chooseNN ? testNN() : trainNN();
-}*/
+}
 
 
-/*void trainNN(){
+void trainNN(){
 
     //fann requirements
 	fann_type *calc_out;
@@ -170,7 +167,7 @@ queue<char> tempF1, tempF2;
 void testNN(){
         fann_type *calc_out;
         unsigned int i;
-        int ret = 0;
+        //int ret = 0;
 
         struct fann *ann;
         struct fann_train_data *data;
@@ -234,4 +231,3 @@ void testNN(){
 
 //        return ret;
 }
-*/
