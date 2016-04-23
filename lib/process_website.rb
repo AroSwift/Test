@@ -34,6 +34,10 @@ class ProcessWebsite
     kit = IMGKit.new(url, quality: 30, "crop-w" => 1280, "crop-h" => 720)
     @file = "./lib/fann/wc2fann/data/screenshot_#{@image_num}.png"
     kit.to_file(@file)
+
+    if File.zero?(@file)
+      download_image(chose_website)
+    end
   end
 
   def convert_ascii
