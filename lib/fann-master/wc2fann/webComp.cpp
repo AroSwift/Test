@@ -67,11 +67,6 @@ int main(int argc, char* argv[]){
 	callNN(testNN);
 }
 
-/*int FANN_API test_callback(struct fann *ann, struct fann_train_data *train, unsigned int max_epochs, unsigned int epochs_between_reports, float desired_error, unsigned int epochs){
-	printf("Epochs     %8d. MSE: %.5f. Desired-MSE: %.5f\n", epochs, fann_get_MSE(ann), desired_error);
-    return 0;
-}*/
-
 void createOutputFile(Data* files, bool testNeural, char** superiorSite){
 	writeOutput(files);
 	files->output << endl;
