@@ -74,16 +74,17 @@ void writeOutput(Data *files){
   queue<char> tempF1, tempF2;
 	char f1, f2;
 
-	while(files->imgOne.get(f1)){
-		cout << "bout 2 canvert" << endl;
+	while(files->imgOne.get(f1) && files->imgTwo.get(f2)){
 		files->imgOne.ignore(1, '\n');
 		files ->imgTwo.ignore(1, '\n');
 		tempF1.push(f1);
 		tempF2.push(f2);
 	}
+
 	files->output << (int)tempF1.front() << " " << (int)tempF2.front();
 	tempF1.pop();
 	tempF2.pop();
+
 	while(!tempF1.empty() && !tempF2.empty()){
 			files->output << " " << (int)tempF1.front() << " " << (int)tempF2.front();
 			tempF1.pop();
