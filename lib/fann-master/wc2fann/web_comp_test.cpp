@@ -1,7 +1,6 @@
-//web_comp_test.c
-
 #include <stdio.h>
-#include "fann.h"
+#include <fann.h>
+#include <fann_cpp.h>
 
 int main()
 {

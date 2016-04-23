@@ -1,6 +1,6 @@
 #include <stdio.h>
-
-#include "fann.h"
+#include <fann.h>
+#include <fann_cpp.h>
 
 int FANN_API test_callback(struct fann *ann, struct fann_train_data *train,
 	unsigned int max_epochs, unsigned int epochs_between_reports,
