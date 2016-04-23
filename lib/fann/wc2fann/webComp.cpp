@@ -26,8 +26,8 @@ using namespace std;
 int main(int argc, char* argv[]){
 	Data *files;
 	//Defining the names of the ascii images as strings to be called later
-	string asciiOne = "./lib/fann/wc2fann/data/ascii_1.txt";
-	string asciiTwo = "./lib/fann/wc2fann/data/ascii_2.txt";
+	string asciiOne = "./data/ascii_1.txt";
+	string asciiTwo = "./data/ascii_2.txt";
 	bool testNN;
 
 	//if there is something added with the program executable
@@ -38,7 +38,7 @@ int main(int argc, char* argv[]){
 		//calling the constructor for the class Data with the three
 		//image names that are associated. This opens three files with
 		//the names associated
-		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.train");
+		files = new Data(asciiOne, asciiTwo, "./data/selection.train");
 		//calls the createOutputFile file function which converts each values
 		//in each ascii text file into it's appropriate number value and writes
 		//it to 'selection.train' is also passed a boolean so that
@@ -53,7 +53,7 @@ int main(int argc, char* argv[]){
 		//calling the constructor for the class Data with the three
 		//image names that are associated. This opens three files with
 		//the names associated
-		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.test");
+		files = new Data(asciiOne, asciiTwo, "./data/selection.test");
 		//calls the createOutputFile file function which converts each values
 		//in each ascii text file into it's appropriate number value and writes
 		//it to 'selection.train' is also passed a boolean so that
@@ -73,7 +73,9 @@ void createOutputFile(Data* files, bool testNeural, char** superiorSite){
 void writeOutput(Data *files){
   queue<char> tempF1, tempF2;
 	char f1, f2;
-	while(files->imgOne.get(f1) && files->imgTwo.get(f2)){
+
+	while(files->imgOne.get(f1)){
+		cout << "bout 2 canvert" << endl;
 		files->imgOne.ignore(1, '\n');
 		files ->imgTwo.ignore(1, '\n');
 		tempF1.push(f1);
@@ -114,7 +116,7 @@ void trainNN(){
 	cout << "Creating network.\n";
 	ann = fann_create_standard(num_layers, num_input, num_neurons_hidden, num_output);
 
-	data = fann_read_train_from_file("selection.train");
+	data = fann_read_train_from_file("./data/selection.train");
 
 	fann_set_activation_steepness_hidden(ann, 1);
 	fann_set_activation_steepness_output(ann, 1);
@@ -143,10 +145,10 @@ void trainNN(){
 
 	cout << "Saving network.\n";
 
-	fann_save(ann, "web_comp_config.net");
+	fann_save(ann, "./data/web_comp_config.net");
 
-	decimal_point = fann_save_to_fixed(ann, "web_comp_fixed.net");
-	fann_save_train_to_fixed(data, "web_comp_fixed.data", decimal_point);
+	decimal_point = fann_save_to_fixed(ann, "./data/web_comp_fixed.net");
+	fann_save_train_to_fixed(data, "./data/web_comp_fixed.data", decimal_point);
 
 	cout << "Cleaning up.\n";
 	fann_destroy_train(data);
@@ -164,26 +166,26 @@ void testNN(){
         printf("Creating network.\n");
 
 #ifdef FIXEDFANN
-        ann = fann_create_from_file("web_comp_fixed.net");
+        ann = fann_create_from_file("./data/web_comp_fixed.net");
 #else
-        ann = fann_create_from_file("web_comp_config.net");
+        ann = fann_create_from_file("./data/web_comp_config.net");
 #endif
 
         if(!ann)
         {
-        	printf("Error creating ann --- ABORTING.\n");
+        	cout << "Error creating ann --- ABORTING.\n";
         	exit(-1);
         }
 
         fann_print_connections(ann);
         fann_print_parameters(ann);
 
-        printf("Testing network.\n");
+        cout << "Testing network.\n";
 
 #ifdef FIXEDFANN
-        data = fann_read_train_from_file("web_comp_fixed.data");
+        data = fann_read_train_from_file("./data/web_comp_fixed.data");
 #else
-        data = fann_read_train_from_file("selection.test");
+        data = fann_read_train_from_file("./data/selection.test");
 #endif
 
         for(i = 0; i < fann_length_train_data(data); i++)
@@ -197,7 +199,7 @@ void testNN(){
 
                 if((float) fann_abs(calc_out[0] - data->output[i][0]) / fann_get_multiplier(ann) > 0.2)
                 {
-                        printf("Test failed\n");
+                        cout << "Test failed\n";
                         ret = -1;
                 }
 #else
@@ -208,12 +210,12 @@ void testNN(){
                 //Web_Comp
                 double answer = fann_abs(calc_out[0] - data->output[0][0]);
                 FILE *output;
-                output = fopen("Web_Comp_Answer.txt","w");
+                output = fopen("./data/Web_Comp_Answer.txt","w");
                 fprintf(output, "%f", answer);
                 fclose(output);
 #endif
 
-        printf("Cleaning up.\n");
+        cout << "Cleaning up.\n";
         fann_destroy_train(data);
         fann_destroy(ann);
 
