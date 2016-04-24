@@ -27,11 +27,11 @@ class NeuralNetworkController < ApplicationController
     file.close
 
     # Image 1 is better
-    if file_output.strip == '1'
+    if file_output.strip == '0'
       @image_1 = "correct"
       @image_2 = "incorrect"
     # Image 2 is better
-  elsif file_output.strip == '2'
+  elsif file_output.strip == '1'
       @image_1 = "incorrect"
       @image_2 = "correct"
     else # Something went wrong so both are bad
