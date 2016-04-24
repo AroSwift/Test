@@ -11,11 +11,8 @@ class NeuralNetworkController < ApplicationController
     ProcessWebsite.new(url: params[:compare_websites][:web_page_link_1], image_num: 1)
     ProcessWebsite.new(url: params[:compare_websites][:web_page_link_2], image_num: 2)
 
-    # Call C++ file to convert to ascii
-    system "lib/fann/wc2fann/webComp.out"
-
-    # Call the neural network
-    system "lib/fann/wc2fann/web_comp_test"
+    # Call C++ file to
+    system "lib/fann/wc2fann/webComp"
 
     respond_to do |format|
       format.html { redirect_to neural_network_show_websites_path }

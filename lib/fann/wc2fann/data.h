@@ -20,7 +20,7 @@ Data::Data(string nameOne, string nameTwo, string outputName){
 	imgOne.open(nameOne.c_str());
 	imgTwo.open(nameTwo.c_str());
 	output.open(outputName.c_str());
-	output << 1 << " " << 2 << " " << 1 << endl;
+	output << 1 << " " << 92 << " " << 1 << endl;
 }
 Data::~Data(){
 	imgOne.close();
