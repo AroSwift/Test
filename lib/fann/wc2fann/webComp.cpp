@@ -26,93 +26,98 @@ using namespace std;
 int main(int argc, char* argv[]){
 	Data *files;
 	//Defining the names of the ascii images as strings to be called later
-	string asciiOne = "./data/ascii_1.txt";
-	string asciiTwo = "./data/ascii_2.txt";
-	bool testNN;
+	string asciiOne = "./lib/fann/wc2fann/data/ascii_1.txt";
+	string asciiTwo = "./lib/fann/wc2fann/data/ascii_2.txt";
+	bool chooseNN;
 
 	//if there is something added with the program executable
 	//then it is the superior image meaning that the NN is still
 	//in training.
 	if(argc == 2){
-		testNN = false;
+		chooseNN = false;
 		//calling the constructor for the class Data with the three
 		//image names that are associated. This opens three files with
 		//the names associated
-		files = new Data(asciiOne, asciiTwo, "./data/selection.train");
+		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.train");
 		//calls the createOutputFile file function which converts each values
 		//in each ascii text file into it's appropriate number value and writes
 		//it to 'selection.train' is also passed a boolean so that
 		//it can distinguish between either training or testing, and the
 		//value that the NN should be choosing and writes that into the file aswell
-		createOutputFile(files, testNN, argv); //if NN is called change
+		writeOutput(files, chooseNN, argv); //if NN is called change
 		//false to testNN and remove the comments above and below
 	}
 	//there are no command line arguments and the NN is being tested
 	else{
-		testNN = true;
+		chooseNN = true;
 		//calling the constructor for the class Data with the three
 		//image names that are associated. This opens three files with
 		//the names associated
-		files = new Data(asciiOne, asciiTwo, "./data/selection.test");
+		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.test");
 		//calls the createOutputFile file function which converts each values
 		//in each ascii text file into it's appropriate number value and writes
 		//it to 'selection.train' is also passed a boolean so that
 		//it can distinguish between either training or testing
-		createOutputFile(files, testNN);
+		writeOutput(files, chooseNN);
 	}
-	callNN(testNN);
+	chooseNN ? testNN() : trainNN();
 }
 
-void createOutputFile(Data* files, bool testNeural, char** superiorSite){
-	writeOutput(files);
-	files->output << endl;
-	if(!testNeural) files->output << superiorSite[1] << endl;
+/*void createOutputFile(Data* files, bool testNeural, char** superiorSite){
+	writeOutput(files, testNeural, superiorSite);
+	//files->output << endl;
+	//if(!testNeural) files->output << superiorSite[1] << endl;
 	delete files;
-}
+}*/
 
-void writeOutput(Data *files){
-  queue<char> tempF1, tempF2;
-	char f1, f2;
+void writeOutput(Data *files, bool testNeural, char** superiorSite){
+  queue<string> tempF1, tempF2;
+	string f1, f2;
+	int len, i;
 
-	// files->imgOnenoskipws;
-	while(files->imgOne.get(f1)){
-		cout << "|" << f1 << "|" << endl;
-		files->imgOne.ignore(1, '\n');
+	while(getline(files->imgOne, f1)){
 		tempF1.push(f1);
 	}
 
-	// files->imgTwo >> noskipws;
-	while(files->imgTwo.get(f2)){
-		cout << "image two" << endl;
-		files->imgTwo.ignore(1, '\n');
+	while(getline(files->imgTwo, f2)){
 		tempF2.push(f2);
 	}
 
-
 	while( !tempF1.empty() ){
-		if(tempF1.front() == ' ') {
-			files->output << "255 ";
-		} else {
-			files->output << (int)tempF1.front() << " ";
+		len = tempF1.front().length();
+		for (i = 0; i< len; i++){
+			if(( tempF1.front() )[i] == ' ')
+				files->output << "0.255";
+			else
+				files->output << "0." << (int)(tempF1.front())[i];
+			files->output << " ";
 		}
 		tempF1.pop();
 	}
 
-	files->output << endl;
+	if(!testNeural)
+		files->output << endl << superiorSite[1] << endl;
+	else
+		files->output << endl << "1" << endl;
 
 	while( !tempF2.empty() ){
-		if(tempF2.front() == ' ') {
-			files->output << "255 ";
-		} else {
-			files->output << (int)tempF2.front() << " ";
+		len = tempF2.front().length();
+		for (i = 0; i< len; i++){
+			if(( tempF2.front() )[i] == ' ')
+				files->output << "0.255";
+			else
+				files->output << "0." << (int)(tempF2.front())[i];
+			files->output << " ";
 		}
 		tempF2.pop();
 	}
 
-}
+	if(!testNeural)
+		files->output << endl << superiorSite[1] << endl;
+	else
+		files->output << endl << "1" << endl;
 
-void callNN(bool chooseNN){
-	chooseNN ? testNN() : trainNN();
+	delete files;
 }
 
 
@@ -136,7 +141,7 @@ void trainNN(){
 	cout << "Creating network.\n";
 	ann = fann_create_standard(num_layers, num_input, num_neurons_hidden, num_output);
 
-	data = fann_read_train_from_file("./data/selection.train");
+	data = fann_read_train_from_file("./lib/fann/wc2fann/data/selection.train");
 
 	fann_set_activation_steepness_hidden(ann, 1);
 	fann_set_activation_steepness_output(ann, 1);
@@ -165,10 +170,10 @@ void trainNN(){
 
 	cout << "Saving network.\n";
 
-	fann_save(ann, "./data/web_comp_config.net");
+	fann_save(ann, "./lib/fann/wc2fann/data/web_comp_config.net");
 
-	decimal_point = fann_save_to_fixed(ann, "./data/web_comp_fixed.net");
-	fann_save_train_to_fixed(data, "./data/web_comp_fixed.data", decimal_point);
+	decimal_point = fann_save_to_fixed(ann, "./lib/fann/wc2fann/data/web_comp_fixed.net");
+	fann_save_train_to_fixed(data, "./lib/fann/wc2fann/data/web_comp_fixed.data", decimal_point);
 
 	cout << "Cleaning up.\n";
 	fann_destroy_train(data);
@@ -186,9 +191,9 @@ void testNN(){
         printf("Creating network.\n");
 
 #ifdef FIXEDFANN
-        ann = fann_create_from_file("./data/web_comp_fixed.net");
+        ann = fann_create_from_file("./lib/fann/wc2fann/data/web_comp_fixed.net");
 #else
-        ann = fann_create_from_file("./data/web_comp_config.net");
+        ann = fann_create_from_file("./lib/fann/wc2fann/data/web_comp_config.net");
 #endif
 
         if(!ann)
@@ -203,9 +208,9 @@ void testNN(){
         cout << "Testing network.\n";
 
 #ifdef FIXEDFANN
-        data = fann_read_train_from_file("./data/web_comp_fixed.data");
+        data = fann_read_train_from_file("./lib/fann/wc2fann/data/web_comp_fixed.data");
 #else
-        data = fann_read_train_from_file("./data/selection.test");
+        data = fann_read_train_from_file("./lib/fann/wc2fann/data/selection.test");
 #endif
 
         for(i = 0; i < fann_length_train_data(data); i++)
@@ -230,7 +235,7 @@ void testNN(){
                 //Web_Comp
                 double answer = fann_abs(calc_out[0] - data->output[0][0]);
                 FILE *output;
-                output = fopen("./data/Web_Comp_Answer.txt","w");
+                output = fopen("./lib/fann/wc2fann/data/Web_Comp_Answer.txt","w");
                 fprintf(output, "%f", answer);
                 fclose(output);
 #endif

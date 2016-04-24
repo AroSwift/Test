@@ -5,8 +5,7 @@
 #include <fann.h>
 #include <fann_cpp.h>
 
-void callNN(bool chooseNN);
-void createOutputFile(Data* files, bool testNeural, char** superiorSite = NULL);
+//void createOutputFile(Data* files, bool testNeural, char** superiorSite = NULL);
 void trainNN();
 void testNN();
-void writeOutput(Data *files);
+void writeOutput(Data *files, bool testNeural, char** superiorSite = NULL);
