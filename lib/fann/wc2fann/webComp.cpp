@@ -65,8 +65,8 @@ int main(int argc, char* argv[]){
 
 void createOutputFile(Data* files, bool testNeural, char** superiorSite){
 	writeOutput(files);
-	files->output << endl;
-	if(!testNeural) files->output << superiorSite[1] << endl;
+	// files->output << endl;
+	// if(!testNeural) files->output << superiorSite[1] << endl;
 	delete files;
 }
 
@@ -74,22 +74,28 @@ void writeOutput(Data *files){
   queue<char> tempF1, tempF2;
 	char f1, f2;
 
-	while(files->imgOne.get(f1) && files->imgTwo.get(f2)){
+	while(files->imgOne.get(f1)){
+		cout << "image one" << endl;
 		files->imgOne.ignore(1, '\n');
-		files ->imgTwo.ignore(1, '\n');
 		tempF1.push(f1);
+	}
+
+	while(files->imgTwo.get(f2)){
+		cout << "image two" << endl;
+		files ->imgTwo.ignore(1, '\n');
 		tempF2.push(f2);
 	}
 
-	files->output << ((((int)tempF1.front()) > 50) ? 1:0)
-	 							<< " " << ((((int)tempF2.front()) > 50) ? 1:0);
-	tempF1.pop();
-	tempF2.pop();
 
-	while(!tempF1.empty() && !tempF2.empty()){
-			files->output << " " << ((((int)tempF1.front()) > 50) ? 1:0)
-										<< " " << ((((int)tempF2.front()) > 50) ? 1:0);
-			tempF1.pop();
+	while( !tempF1.empty() ){
+		files->output << (int)tempF1.front() << " ";
+		tempF1.pop();
+	}
+
+	cout << endl;
+
+	while( !tempF2.empty() ){
+		 files->output << (int)tempF2.front() << " ";
 			tempF2.pop();
 	}
 }
