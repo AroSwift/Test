@@ -8,7 +8,8 @@ class ProcessWebsite
 
     # Either use the website given or get a website
     url.present? ? download_image(url) : download_image(chose_website)
-    convert_ascii # Take webpage and get the equivalent ascii values
+    # Take webpage and get the equivalent ascii values
+    convert_ascii
   end
 
   def chose_website
@@ -32,17 +33,23 @@ class ProcessWebsite
     end
 
     kit = IMGKit.new(url, quality: 30, "crop-w" => 1280, "crop-h" => 720)
-    @file = "./lib/fann/wc2fann/data/screenshot_#{@image_num}.png"
-    kit.to_file(@file)
+    @image_file = "./lib/fann/wc2fann/data/screenshot_#{@image_num}.png"
+    kit.to_file(@image_file)
 
     # Ensure a image was retrieved and saved properly
-    if File.zero?(@file)
+    while File.zero?(@image_file)
       download_image(chose_website)
     end
   end
 
   def convert_ascii
-    system "asciiart -c -w 20 #{@file} > ./lib/fann/wc2fann/data/ascii_#{@image_num}.txt"
+    ascii_file = "./lib/fann/wc2fann/data/ascii_#{@image_num}.txt"
+    system "asciiart -c -w 20 #{@image_file} > #{ascii_file}"
+
+    while File.zero?(ascii_file)
+      download_image(chose_website)
+      convert_ascii
+    end
   end
 
   def valid?(url)
