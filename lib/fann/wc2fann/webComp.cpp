@@ -50,7 +50,31 @@ int main(int argc, char* argv[]){
 	}
 	chooseNN ? testNN() : trainNN();
 }
+/*
+TestNN
+Uses FANN library tools for creating a Network configuration file
+and it runs trials on the peice selection data as a terminal response.
+The desired end product is a configuration based on the architecuture
+stated at the beginning of the function. The algorithim for creating
+a derived function from tha data map if RPROP. Details on this algorithim
+and why it was chosen resides on the website homepage. In order for the
+network to be trained the selection must follow this structure:
+------
+x y z
+i j
+l
+-----
+x - amount of input neurons
+y - total number of values on the line (selection.train)
+z - number of output neurons
+i - pattern one or ascii_i (post-casting to a double)
+j - pattern two or ascii_2 (post-casting to a double)
+l - the 1 or 2 choice
 
+	The product created from this function is a network configuration that can be
+	seen in the data diretory. This product is needed for the testNN function which
+	gives the user the ability to see the outcome of the NN.
+*/
 void trainNN(){
 
   //fann requirements
@@ -117,13 +141,12 @@ void trainNN(){
 }
 
 /*
-	TestNN
-	Uses a FANN library tools for opening a Network configuration file
-	created in the trainNN function and it runs trials on the selection data.
-	The desired end product is an answer between 0 and 1 where 0 refers to the
-	first image and 1 refers to the second image. Confidence is given
-	through the subtracted difference between the desired output and the calculated
-	output.
+TestNN
+Uses a FANN library tools for opening a Network configuration file
+created in the trainNN function and it runs trials on the selection data.
+The desired end product is an answer between 0 and 1 where 0 refers to the
+first image and 1 refers to the second image. Confidence is given
+through the subtracted difference between the desired output and the calculated	output.
 
 	Testing data must follow this structure:
 	------
@@ -138,13 +161,13 @@ void trainNN(){
 	j - pattern two or ascii_2
 	l - the 1 or 2 choice
 
-	The product created from this function comes in two forms:
-	1 - On the terminal side, the connections and the testing results are printed
-	out with details on what two values are being compared, what the output should be
-	and what the difference was between the NN's output and the desired output.
-	2 - When testing is successful, an external data file called Web_Comp_Answer
-	is overwritten with two peices of information, the NNdata output and the
-	difference between the desired output and the actual output.
+The product created from this function comes in two forms:
+1 - On the terminal side, the connections and the testing results are printed
+out with details on what two values are being compared, what the output should be
+and what the difference was between the NN's output and the desired output.
+2 - When testing is successful, an external data file called Web_Comp_Answer
+is overwritten with two peices of information, the NNdata output and the
+difference between the desired output and the actual output.
 */
 
 void testNN(){
