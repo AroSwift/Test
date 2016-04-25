@@ -38,13 +38,6 @@ int main(int argc, char* argv[]){
 		//the names associated
 		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.train", argv);
 		delete files;
-		//calls the createOutputFile file function which converts each values
-		//in each ascii text file into it's appropriate number value and writes
-		//it to 'selection.train' is also passed a boolean so that
-		//it can distinguish between either training or testing, and the
-		//value that the NN should be choosing and writes that into the file aswell
-		//writeOutput(files, chooseNN, argv); //if NN is called change
-		//false to testNN and remove the comments above and below
 	}
 	//there are no command line arguments and the NN is being tested
 	else{
@@ -54,65 +47,9 @@ int main(int argc, char* argv[]){
 		//the names associated
 		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.test");
 		delete files;
-		//calls the createOutputFile file function which converts each values
-		//in each ascii text file into it's appropriate number value and writes
-		//it to 'selection.train' is also passed a boolean so that
-		//it can distinguish between either training or testing
-		//writeOutput(files, chooseNN);
 	}
 	chooseNN ? testNN() : trainNN();
 }
-
-/*void writeOutput(Data *files, bool testNeural, char** superiorSite){
-  queue<string> tempF1, tempF2;
-	string f1, f2;
-	int len, i;
-
-	while(getline(files->imgOne, f1)){
-		tempF1.push(f1);
-	}
-
-	while(getline(files->imgTwo, f2)){
-		tempF2.push(f2);
-	}
-
-	while( !tempF1.empty() ){
-		len = tempF1.front().length();
-		for (i = 0; i< len; i++){
-			if(( tempF1.front() )[i] == ' ')
-				files->output << "0.255";
-			else
-				files->output << "0." << (int)(tempF1.front())[i];
-			files->output << " ";
-		}
-		tempF1.pop();
-	}
-
-	if(!testNeural)
-		files->output << endl << superiorSite[1] << endl;
-	else
-		files->output << endl << "1" << endl;
-
-	while( !tempF2.empty() ){
-		len = tempF2.front().length();
-		for (i = 0; i< len; i++){
-			if(( tempF2.front() )[i] == ' ')
-				files->output << "0.255";
-			else
-				files->output << "0." << (int)(tempF2.front())[i];
-			files->output << " ";
-		}
-		tempF2.pop();
-	}
-
-	if(!testNeural)
-		files->output << endl << superiorSite[1] << endl;
-	else
-		files->output << endl << "1" << endl;
-
-	delete files;
-}*/
-
 
 void trainNN(){
 
