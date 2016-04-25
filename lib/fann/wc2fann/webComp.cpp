@@ -21,35 +21,46 @@ The first line of both output files is the topology for the Neural network.
 using namespace std;
 
 //the command line arguments. Can either be 1 or 2 arguments
+//one argument means that the program does not check to see if it is correct
+//because it is a test version and it is no longer in training.
+//two arguments means that the program is in training and that the second argument is
+//either a 0 or 1 being which image is superior, 0 being the first image
 int main(int argc, char* argv[]){
+	//defining a Data files pointer
 	Data *files;
 	//Defining the names of the ascii images as strings to be called later
 	string asciiOne = "./lib/fann/wc2fann/data/ascii_1.txt";
 	string asciiTwo = "./lib/fann/wc2fann/data/ascii_2.txt";
+	//defining a bool that will determine which instance of the program is being run
 	bool chooseNN;
 
-	//if there is something added with the program executable
-	//then it is the superior image meaning that the NN is still
-	//in training.
+	//if there is more than just one argument then the NN is in training
 	if(argc == 2){
+		//making chooseNN false to mean that the NN is in training and not testing
 		chooseNN = false;
-		//calling the constructor for the class Data with the three
-		//image names that are associated. This opens three files with
-		//the names associated
+		//calling the constructor for the class Data with the three file names and
+		//the character double pointer that is the number of the superior website
+		//this writes the output file in full
 		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.train", argv);
+		//delete the class because the output file is now fully written and ready to be opened by
+		//the NN
 		delete files;
 	}
 	//there are no command line arguments and the NN is being tested
 	else{
+		//making chooseNN true to determine that the NN is in testing
 		chooseNN = true;
-		//calling the constructor for the class Data with the three
-		//image names that are associated. This opens three files with
-		//the names associated
+		//calling the constructor for the class Data with the three file names.
+		//this writes the output file in full
 		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.test");
+		//delete the class because the output file is now fully written and ready to be opened by
+		//the NN
 		delete files;
 	}
+	//if chooseNN is true then the program needs to be tested, otherwise it needs to be trained
 	chooseNN ? testNN() : trainNN();
 }
+
 /*
 TestNN
 Uses FANN library tools for creating a Network configuration file
