@@ -22,11 +22,10 @@ class NeuralNetworkController < ApplicationController
   def show_websites
     # Read the output of the file
     file = File.open("./lib/fann/wc2fann/data/Web_Comp_Answer.txt", "r+")
-    file_output = file.read
-    file_output.squish
+    file_output = file.read.squish
 
     best_image = file_output[0]
-    percentage_of_error = file[file_output.length]
+    @confidence_level = (file_output[1,file_output.length].strip.to_f * 100).to_s + "%"
 
     # Image 1 is better
     if best_image == '0'
