@@ -165,9 +165,7 @@ void trainNN(){
 
 	for(i = 0; i < fann_length_train_data(data); i++){
 			calc_out = fann_run(ann, data->input[i]);
-			/*printf"Web_Comp test (%f,%f) -> %f, should be %f, difference=%f\n",
-				   data->input[i][0], data->input[i][1], calc_out[0], data->output[i][0],
-				   fann_abs(calc_out[0] - data->output[i][0]));*/
+
 
 			cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])) << endl;
@@ -224,9 +222,6 @@ void testNN(){
                 fann_reset_MSE(ann);
                 calc_out = fann_test(ann, data->input[i], data->output[i]);
 #ifdef FIXEDFANN
-                /*printf("Web_Comp test (%d, %d) -> %d, should be %d, difference=%f\n",
-                           data->input[i][0], data->input[i][1], calc_out[0], data->output[i][0],
-                           (float) fann_abs(calc_out[0] - data->output[i][0]) / fann_get_multiplier(ann));*/
 
 								cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
 					 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])/ fann_get_multiplier(ann) << endl;
@@ -237,9 +232,6 @@ void testNN(){
                         ret = -1;
                 }
 #else
-                /*printf("web_comp test (%f, %f) -> %f, should be %f, difference=%f\n",
-                           data->input[i][0], data->input[i][1], calc_out[0], data->output[i][0],
-                           (float) fann_abs(calc_out[0] - data->output[i][0]));*/
 
 								cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
 					 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])) << endl;
