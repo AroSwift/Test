@@ -123,7 +123,7 @@ void writeOutput(Data *files, bool testNeural, char** superiorSite){
 
 void trainNN(){
 
-    //fann requirements
+  //fann requirements
 	fann_type *calc_out;
 	const unsigned int num_input = 2;
 	const unsigned int num_output = 1;
@@ -138,7 +138,9 @@ void trainNN(){
 	unsigned int i = 0;
 	unsigned int decimal_point;
 
+	//back end output for verifying proper performance of training the network
 	cout << "Creating network.\n";
+	//function creates a Network Structure using the given parameters listed above
 	ann = fann_create_standard(num_layers, num_input, num_neurons_hidden, num_output);
 
 	data = fann_read_train_from_file("./lib/fann/wc2fann/data/selection.train");
@@ -163,10 +165,14 @@ void trainNN(){
 
 	for(i = 0; i < fann_length_train_data(data); i++){
 			calc_out = fann_run(ann, data->input[i]);
-			printf("Web_Comp test (%f,%f) -> %f, should be %f, difference=%f\n",
+			/*printf"Web_Comp test (%f,%f) -> %f, should be %f, difference=%f\n",
 				   data->input[i][0], data->input[i][1], calc_out[0], data->output[i][0],
-				   fann_abs(calc_out[0] - data->output[i][0]));
+				   fann_abs(calc_out[0] - data->output[i][0]));*/
+
+			cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
+			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])) << endl;
 	}
+
 
 	cout << "Saving network.\n";
 
@@ -218,9 +224,12 @@ void testNN(){
                 fann_reset_MSE(ann);
                 calc_out = fann_test(ann, data->input[i], data->output[i]);
 #ifdef FIXEDFANN
-                printf("Web_Comp test (%d, %d) -> %d, should be %d, difference=%f\n",
+                /*printf("Web_Comp test (%d, %d) -> %d, should be %d, difference=%f\n",
                            data->input[i][0], data->input[i][1], calc_out[0], data->output[i][0],
-                           (float) fann_abs(calc_out[0] - data->output[i][0]) / fann_get_multiplier(ann));
+                           (float) fann_abs(calc_out[0] - data->output[i][0]) / fann_get_multiplier(ann));*/
+
+								cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
+					 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])/ fann_get_multiplier(ann) << endl;
 
                 if((float) fann_abs(calc_out[0] - data->output[i][0]) / fann_get_multiplier(ann) > 0.2)
                 {
@@ -228,16 +237,23 @@ void testNN(){
                         ret = -1;
                 }
 #else
-                printf("web_comp test (%f, %f) -> %f, should be %f, difference=%f\n",
+                /*printf("web_comp test (%f, %f) -> %f, should be %f, difference=%f\n",
                            data->input[i][0], data->input[i][1], calc_out[0], data->output[i][0],
-                           (float) fann_abs(calc_out[0] - data->output[i][0]));
+                           (float) fann_abs(calc_out[0] - data->output[i][0]));*/
+													 
+								cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
+					 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])) << endl;
 
-                //Web_Comp
-                int answer = fann_abs(data->output[0][0]);
-                FILE *output;
-                output = fopen("./lib/fann/wc2fann/data/Web_Comp_Answer.txt","w");
-                fprintf(output, "%u", ans);
-                fclose(output);
+
+      //sending the selection Web_Comp_Answer
+      double answer = fann_abs(data->output[0][0]);
+      FILE *output;
+      output = fopen("./lib/fann/wc2fann/data/Web_Comp_Answer.txt","w");
+      fprintf(output, "%1d", answer);
+      fclose(output);
+
+
+
 #endif
 
         cout << "Cleaning up.\n";
