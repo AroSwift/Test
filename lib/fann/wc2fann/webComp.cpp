@@ -240,19 +240,17 @@ void testNN(){
                 /*printf("web_comp test (%f, %f) -> %f, should be %f, difference=%f\n",
                            data->input[i][0], data->input[i][1], calc_out[0], data->output[i][0],
                            (float) fann_abs(calc_out[0] - data->output[i][0]));*/
-													 
+
 								cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
 					 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])) << endl;
 
-
       //sending the selection Web_Comp_Answer
-      double answer = fann_abs(data->output[0][0]);
-      FILE *output;
-      output = fopen("./lib/fann/wc2fann/data/Web_Comp_Answer.txt","w");
-      fprintf(output, "%1d", answer);
-      fclose(output);
-
-
+			int answer = fann_abs(data->output[0][0]);
+			double error_percentage = fann_abs(calc_out[0] - data->output[i][0]);
+			ofstream output;
+			output.open("./lib/fann/wc2fann/data/Web_Comp_Answer.txt");
+			output << answer << " " << error_percentage;
+			output.close();
 
 #endif
 

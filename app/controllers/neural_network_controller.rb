@@ -24,14 +24,16 @@ class NeuralNetworkController < ApplicationController
     file = File.open("./lib/fann/wc2fann/data/Web_Comp_Answer.txt", "r+")
     file_output = file.read
     file_output.squish
-    file.close
+
+    best_image = file_output[0]
+    percentage_of_error = file[file_output.length]
 
     # Image 1 is better
-    if file_output.strip == '0'
+    if best_image == '0'
       @image_1 = "correct"
       @image_2 = "incorrect"
     # Image 2 is better
-  elsif file_output.strip == '1'
+  elsif best_image == '1'
       @image_1 = "incorrect"
       @image_2 = "correct"
     else # Something went wrong so both are bad
