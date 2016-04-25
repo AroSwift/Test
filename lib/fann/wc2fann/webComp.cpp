@@ -16,8 +16,6 @@ The first line of both output files is the topology for the Neural network.
 //the header files used in the program
 #include <iostream>
 #include <cstdlib>
-#include <queue>
-#include <cstddef>
 #include "functions.h"
 
 using namespace std;
@@ -38,14 +36,8 @@ int main(int argc, char* argv[]){
 		//calling the constructor for the class Data with the three
 		//image names that are associated. This opens three files with
 		//the names associated
-		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.train");
-		//calls the createOutputFile file function which converts each values
-		//in each ascii text file into it's appropriate number value and writes
-		//it to 'selection.train' is also passed a boolean so that
-		//it can distinguish between either training or testing, and the
-		//value that the NN should be choosing and writes that into the file aswell
-		writeOutput(files, chooseNN, argv); //if NN is called change
-		//false to testNN and remove the comments above and below
+		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.train", argv);
+		delete files;
 	}
 	//there are no command line arguments and the NN is being tested
 	else{
@@ -54,99 +46,11 @@ int main(int argc, char* argv[]){
 		//image names that are associated. This opens three files with
 		//the names associated
 		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.test");
-		//calls the createOutputFile file function which converts each values
-		//in each ascii text file into it's appropriate number value and writes
-		//it to 'selection.train' is also passed a boolean so that
-		//it can distinguish between either training or testing
-		writeOutput(files, chooseNN);
+		delete files;
 	}
 	chooseNN ? testNN() : trainNN();
 }
 
-/*void createOutputFile(Data* files, bool testNeural, char** superiorSite){
-	writeOutput(files, testNeural, superiorSite);
-	//files->output << endl;
-	//if(!testNeural) files->output << superiorSite[1] << endl;
-	delete files;
-}*/
-
-void writeOutput(Data *files, bool testNeural, char** superiorSite){
-  queue<string> tempF1, tempF2;
-	string f1, f2;
-	int len, i;
-
-	while(getline(files->imgOne, f1)){
-		tempF1.push(f1);
-	}
-
-	while(getline(files->imgTwo, f2)){
-		tempF2.push(f2);
-	}
-
-	while( !tempF1.empty() ){
-		len = tempF1.front().length();
-		for (i = 0; i< len; i++){
-			if(( tempF1.front() )[i] == ' ')
-				files->output << "0.255";
-			else
-				files->output << "0." << (int)(tempF1.front())[i];
-			files->output << " ";
-		}
-		tempF1.pop();
-	}
-
-	if(!testNeural)
-		files->output << endl << superiorSite[1] << endl;
-	else
-		files->output << endl << "1" << endl;
-
-	while( !tempF2.empty() ){
-		len = tempF2.front().length();
-		for (i = 0; i< len; i++){
-			if(( tempF2.front() )[i] == ' ')
-				files->output << "0.255";
-			else
-				files->output << "0." << (int)(tempF2.front())[i];
-			files->output << " ";
-		}
-		tempF2.pop();
-	}
-
-	if(!testNeural)
-		files->output << endl << superiorSite[1] << endl;
-	else
-		files->output << endl << "1" << endl;
-
-	delete files;
-}
-
-
-
-/*
-	TrainNN
-	Uses a FANN library tools for creating an Artificial Neural Network and reads data
-	specifically formatted for the the library:
-	------
-	x y z
-	i j
-	l
-	-----
-	x - amount of input neurons
-	y - total number of values on the line
-	z - number of output neurons
-	i - pattern one or ascii_i
-	j - pattern two or ascii_2
-	l - the 1 or 2 choice
-
- 	The function begins by creating a ANN from the given parameters, and reading the
-	output into format suitable for the library . If the network has appropriate parameters
-	the program runs fann train on data which utilizes the RPROP algorithim. It initializes the
-	weights based on the number of epochs (or training sets) that the tester chooses.
-	To test the compatibilty of the data with the network structure, terminal output is shown
-	to signal whether the Network has changed and can be tested on. The main product of the
-	train function is the configuration file. web_comp_config becomes the building block
-	for the function that is to be used in the testing phase.
-*/
 void trainNN(){
 
   //fann requirements
@@ -190,7 +94,8 @@ void trainNN(){
 
 	cout << "Testing network. " << fann_test_data(ann, data) << endl;
 
-	for(i = 0; i < fann_length_train_data(data); i++){
+	unsigned int len = fann_length_train_data(data);
+	for(i = 0; i < len; i++){
 			calc_out = fann_run(ann, data->input[i]);
 
 			cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]

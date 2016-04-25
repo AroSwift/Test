@@ -1,9 +1,9 @@
 +--------------------+
-|                    |
 |oooooooooooooooooooo|
 |oooooooooooooooooooo|
-|o=====oooooooooooooo|
-|=+++++==oooooooooooo|
-|========oooooooooooo|
 |oooooooooooooooooooo|
+|oo+++++++++++ooooooo|
+|oo~  .~~... ~ooooooo|
+|o+~..~~.~~~~+ooooooo|
+|oo+ooooooooooooooooo|
 +--------------------+

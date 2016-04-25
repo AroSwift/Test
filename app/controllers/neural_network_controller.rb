@@ -49,7 +49,7 @@ class NeuralNetworkController < ApplicationController
 
   def train_update
     # Call neural network with true indicating that we want to train
-    system "lib/fann/wc2fann/web_comp_train #{params[:best_image]}"
+    system "lib/fann/wc2fann/webComp #{params[:best_image]}"
 
     respond_to do |format|
       format.html { redirect_to neural_network_train_path }
