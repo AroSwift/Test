@@ -70,17 +70,18 @@ void trainNN(){
 
 	//back end output for verifying proper performance of training the network
 	cout << "Creating network.\n";
-	//function creates a Network Structure using the given parameters listed above
+	//creates a Network Structure using the given parameters listed above
 	ann = fann_create_standard(num_layers, num_input, num_neurons_hidden, num_output);
 
 	data = fann_read_train_from_file("./lib/fann/wc2fann/data/selection.train");
 
 	fann_set_activation_steepness_hidden(ann, 1);
 	fann_set_activation_steepness_output(ann, 1);
-
+  //FANN_SIGMOID_SYMMETRIC is used to constrain the value of each neuron
 	fann_set_activation_function_hidden(ann, FANN_SIGMOID_SYMMETRIC);
 	fann_set_activation_function_output(ann, FANN_SIGMOID_SYMMETRIC);
-
+  //stops the training in the case that the output neurons differ too greatly
+	//from the desired_error limit
 	fann_set_train_stop_function(ann, FANN_STOPFUNC_BIT);
 	fann_set_bit_fail_limit(ann, 0.01f);
 
@@ -97,14 +98,14 @@ void trainNN(){
 	for(i = 0; i < len; i++){
 			calc_out = fann_run(ann, data->input[i]);
 
-
 			cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
-			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0]) << endl;
+			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])) << endl;
 	}
 
 
 	cout << "Saving network.\n";
-
+  //configuration file created for testNN function
+	// see the madness in web_comp_config.net
 	fann_save(ann, "./lib/fann/wc2fann/data/web_comp_config.net");
 
 	decimal_point = fann_save_to_fixed(ann, "./lib/fann/wc2fann/data/web_comp_fixed.net");
@@ -114,6 +115,37 @@ void trainNN(){
 	fann_destroy_train(data);
 	fann_destroy(ann);
 }
+
+/*
+	TestNN
+	Uses a FANN library tools for opening a Network configuration file
+	created in the trainNN function and it runs trials on the selection data.
+	The desired end product is an answer between 0 and 1 where 0 refers to the
+	first image and 1 refers to the second image. Confidence is given
+	through the subtracted difference between the desired output and the calculated
+	output.
+
+	Testing data must follow this structure:
+	------
+	x y z
+	i j
+	l
+	-----
+	x - amount of input neurons
+	y - total number of values on the line
+	z - number of output neurons
+	i - pattern one or ascii_i
+	j - pattern two or ascii_2
+	l - the 1 or 2 choice
+
+	The product created from this function comes in two forms:
+	1 - On the terminal side, the connections and the testing results are printed
+	out with details on what two values are being compared, what the output should be
+	and what the difference was between the NN's output and the desired output.
+	2 - When testing is successful, an external data file called Web_Comp_Answer
+	is overwritten with two peices of information, the NNdata output and the
+	difference between the desired output and the actual output.
+*/
 
 void testNN(){
         fann_type *calc_out;
@@ -126,6 +158,8 @@ void testNN(){
         printf("Creating network.\n");
 
 #ifdef FIXEDFANN
+				//creates an instance of the network based on the current configuration file
+				//found in the directory
         ann = fann_create_from_file("./lib/fann/wc2fann/data/web_comp_fixed.net");
 #else
         ann = fann_create_from_file("./lib/fann/wc2fann/data/web_comp_config.net");
@@ -133,6 +167,9 @@ void testNN(){
 
         if(!ann)
         {
+					//if the configuratin file is missing or otherwise, the
+					//terminal side of the project reads an error and the
+				  //webcomp output on the website will read an error message
         	cout << "Error creating ann --- ABORTING.\n";
         	exit(-1);
         }
@@ -142,18 +179,22 @@ void testNN(){
 
         cout << "Testing network.\n";
 
+				//reads the testing data into the network configuration
 #ifdef FIXEDFANN
         data = fann_read_train_from_file("./lib/fann/wc2fann/data/web_comp_fixed.data");
 #else
         data = fann_read_train_from_file("./lib/fann/wc2fann/data/selection.test");
 #endif
-				unsigned int len = fann_length_train_data(data);
-        for(i = 0; i < len; i++)
+				//creates an calculated output from the configuration
+        for(i = 0; i < fann_length_train_data(data); i++)
         {
                 fann_reset_MSE(ann);
                 calc_out = fann_test(ann, data->input[i], data->output[i]);
 #ifdef FIXEDFANN
-
+								//terminal output for the test
+								// includes the two patterns that are being compared to one another
+								// the desired output and the difference
+								// it loops based on the length of the selectin data
 								cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
 					 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])/ fann_get_multiplier(ann) << endl;
 
@@ -165,9 +206,11 @@ void testNN(){
 #else
 
 								cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
-					 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0]) << endl;
+					 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])) << endl;
 
       //sending the selection Web_Comp_Answer
+			// it takes the first line of output data from the network sends it to the
+			// answer data file as well as the confidence level
 			int answer = fann_abs(data->output[0][0]);
 			double error_percentage = fann_abs(calc_out[0] - data->output[i][0]);
 			ofstream output;
@@ -176,7 +219,6 @@ void testNN(){
 			output.close();
 
 #endif
-
         cout << "Cleaning up.\n";
         fann_destroy_train(data);
         fann_destroy(ann);
