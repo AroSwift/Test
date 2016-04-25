@@ -234,9 +234,11 @@ void testNN(){
 
                 //Web_Comp
                 double answer = fann_abs(calc_out[0] - data->output[0][0]);
+								int ans = (answer >=0.5)? 1 : 0;
                 FILE *output;
+								//i think the output here needs to be calc_out[0]
                 output = fopen("./lib/fann/wc2fann/data/Web_Comp_Answer.txt","w");
-                fprintf(output, "%f", answer);
+                fprintf(output, "%u", ans);
                 fclose(output);
 #endif
 
