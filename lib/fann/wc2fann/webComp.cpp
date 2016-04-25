@@ -63,13 +63,6 @@ int main(int argc, char* argv[]){
 	chooseNN ? testNN() : trainNN();
 }
 
-/*void createOutputFile(Data* files, bool testNeural, char** superiorSite){
-	writeOutput(files, testNeural, superiorSite);
-	//files->output << endl;
-	//if(!testNeural) files->output << superiorSite[1] << endl;
-	delete files;
-}*/
-
 void writeOutput(Data *files, bool testNeural, char** superiorSite){
   queue<string> tempF1, tempF2;
 	string f1, f2;
@@ -163,12 +156,13 @@ void trainNN(){
 
 	cout << "Testing network. " << fann_test_data(ann, data) << endl;
 
-	for(i = 0; i < fann_length_train_data(data); i++){
+	unsigned int len = fann_length_train_data(data);
+	for(i = 0; i < len; i++){
 			calc_out = fann_run(ann, data->input[i]);
 
 
 			cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
-			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])) << endl;
+			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0]) << endl;
 	}
 
 
@@ -216,8 +210,8 @@ void testNN(){
 #else
         data = fann_read_train_from_file("./lib/fann/wc2fann/data/selection.test");
 #endif
-
-        for(i = 0; i < fann_length_train_data(data); i++)
+				unsigned int len = fann_length_train_data(data);
+        for(i = 0; i < len; i++)
         {
                 fann_reset_MSE(ann);
                 calc_out = fann_test(ann, data->input[i], data->output[i]);
@@ -234,7 +228,7 @@ void testNN(){
 #else
 
 								cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
-					 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])) << endl;
+					 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0]) << endl;
 
       //sending the selection Web_Comp_Answer
 			int answer = fann_abs(data->output[0][0]);
