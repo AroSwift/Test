@@ -16,8 +16,6 @@ The first line of both output files is the topology for the Neural network.
 //the header files used in the program
 #include <iostream>
 #include <cstdlib>
-#include <queue>
-#include <cstddef>
 #include "functions.h"
 
 using namespace std;
@@ -38,13 +36,14 @@ int main(int argc, char* argv[]){
 		//calling the constructor for the class Data with the three
 		//image names that are associated. This opens three files with
 		//the names associated
-		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.train");
+		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.train", argv);
+		delete files;
 		//calls the createOutputFile file function which converts each values
 		//in each ascii text file into it's appropriate number value and writes
 		//it to 'selection.train' is also passed a boolean so that
 		//it can distinguish between either training or testing, and the
 		//value that the NN should be choosing and writes that into the file aswell
-		writeOutput(files, chooseNN, argv); //if NN is called change
+		//writeOutput(files, chooseNN, argv); //if NN is called change
 		//false to testNN and remove the comments above and below
 	}
 	//there are no command line arguments and the NN is being tested
@@ -54,16 +53,17 @@ int main(int argc, char* argv[]){
 		//image names that are associated. This opens three files with
 		//the names associated
 		files = new Data(asciiOne, asciiTwo, "./lib/fann/wc2fann/data/selection.test");
+		delete files;
 		//calls the createOutputFile file function which converts each values
 		//in each ascii text file into it's appropriate number value and writes
 		//it to 'selection.train' is also passed a boolean so that
 		//it can distinguish between either training or testing
-		writeOutput(files, chooseNN);
+		//writeOutput(files, chooseNN);
 	}
 	chooseNN ? testNN() : trainNN();
 }
 
-void writeOutput(Data *files, bool testNeural, char** superiorSite){
+/*void writeOutput(Data *files, bool testNeural, char** superiorSite){
   queue<string> tempF1, tempF2;
 	string f1, f2;
 	int len, i;
@@ -111,7 +111,7 @@ void writeOutput(Data *files, bool testNeural, char** superiorSite){
 		files->output << endl << "1" << endl;
 
 	delete files;
-}
+}*/
 
 
 void trainNN(){

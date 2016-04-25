@@ -7,4 +7,4 @@
 
 void trainNN();
 void testNN();
-void writeOutput(Data *files, bool testNeural, char** superiorSite = NULL);
+//void writeOutput(Data *files, bool testNeural, char** superiorSite = NULL);
