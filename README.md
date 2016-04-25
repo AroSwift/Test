@@ -87,6 +87,6 @@ If the file exists it is overwritten, otherwise it is created.
 C++: The program terminates
 Rails: repeats step one so that the user can continue to train the neural network.
 
-![alt tag](https://raw.githubusercontent.com/AroSwift/WebComp/develop/path/app/assets/images/01.png)
+![alt tag](https://raw.githubusercontent.com/AroSwift/WebComp/develop/app/assets/images/01.png)
 
-![alt tag](https://raw.githubusercontent.com/AroSwift/WebComp/develop/path/app/assets/images/02.png)
+![alt tag](https://raw.githubusercontent.com/AroSwift/WebComp/develop/app/assets/images/02.png)
