@@ -1,0 +1,6 @@
+
+
+Started GET "/" for ::1 at 2016-04-25 14:45:17 -0400
+Processing by NeuralNetworkController#index as HTML
+  Rendered neural_network/index.html.haml within layouts/application (9.5ms)
+Completed 200 OK in 2429ms (Views: 2395.1ms | ActiveRecord: 0.0ms)

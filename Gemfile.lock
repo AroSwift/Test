@@ -183,6 +183,7 @@ DEPENDENCIES
   imgkit
   jquery-rails
   mini_magick
+  nokogiri (>= 1.6.7.rc3)
   pry
   rails (= 4.2.1)
   rest-client
