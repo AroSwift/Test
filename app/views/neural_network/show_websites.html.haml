@@ -1,6 +1,7 @@
 .modal-header
   %h1 Show Websites
 .container.content
+  <b>Note</b>: The superior website is highlighted in green while the inferior website is highlighted red.
   %b.confidence_level.col-md-12= "Confidence level: " + @confidence_level
   .row
     .col-md-6= image_tag "screenshot_1.png", width: 500, height: 500, class: @image_1

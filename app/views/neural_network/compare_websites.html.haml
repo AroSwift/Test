@@ -7,7 +7,9 @@
   %h1 Compare Websites
 .container.content
   %p
-    Please provide a url like: "wechitchat.com". No urls like: "http://wechitchat.com" will be accepted. Note: If the given image is invalid, we will provide a valid url by default.
+    <b>Note</b>: Provide a url like: "wechitchat.com". No urls like: "http://wechitchat.com" will be accepted.
+    %br <b>Note</b>: If the given image is invalid, we will provide a valid url by default.
+    <b>Note</b>: Processing of images and may take an extremely long time.
   %br
   = simple_form_for :compare_websites, url: { action: "compare_websites_update" } do |f|
     = f.input :web_page_link_1

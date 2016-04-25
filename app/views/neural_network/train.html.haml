@@ -1,6 +1,7 @@
 .modal-header
   %h1 Train Neural Network
 .container.content
+  %p <b>Note</b>: Select which image you find superior.
   .col-md-6
     = link_to neural_network_train_update_url(best_image: 0) do
       = image_tag "screenshot_1.png", width: 500, height: 500, class: "normal"
