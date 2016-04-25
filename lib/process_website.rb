@@ -43,10 +43,10 @@ class ProcessWebsite
   end
 
   def convert_ascii
-    ascii_file = "./lib/fann/wc2fann/data/ascii_#{@image_num}.txt"
-    system "asciiart -c -w 20 #{@image_file} > #{ascii_file}"
+    @ascii_file = "./lib/fann/wc2fann/data/ascii_#{@image_num}.txt"
+    system "asciiart -c -w 20 #{@image_file} > #{@ascii_file}"
 
-    while File.open(ascii_file) { |f| f.count } != 9
+    while File.open(@ascii_file) { |f| f.count } != 9
       download_image(chose_website)
       convert_ascii
     end
