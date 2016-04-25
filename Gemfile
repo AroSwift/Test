@@ -23,6 +23,7 @@ gem 'haml'
 gem 'simple_form'
 gem 'rest-client'
 gem 'wkhtmltoimage-binary'
+gem "nokogiri", ">= 1.6.7.rc3"
 gem 'mini_magick'
 gem 'imgkit'
 gem 'asciiart'
@@ -41,4 +42,3 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

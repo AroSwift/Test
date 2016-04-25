@@ -26,27 +26,32 @@ class ProcessWebsite
     # kit = IMGKit.new(url, :quality => 50, :width => side_size, :height => side_size,
     # "crop-w" => crop_side_size, "crop-h" => crop_side_size, "disable-smart-width" => true, "zoom" => 0.2)
 
+    # Get a valid url
     url = "http://www." + url
-
     while !valid?(url)
       url = "http://www." + chose_website
     end
 
+    # Take a snapshot of that website by grabbing the html, css, and javascript
+    # and do a compilation the source in nokogiri in order to get an image
     kit = IMGKit.new(url, quality: 30, "crop-w" => 1280, "crop-h" => 720)
     @image_file = "./lib/fann/wc2fann/data/screenshot_#{@image_num}.png"
-    kit.to_file(@image_file)
+    kit.to_file(@image_file) # Save that image
 
-    # Ensure a image was retrieved and saved properly
+    # Ensure the image was retrieved and saved properly
     while File.zero?(@image_file)
       download_image(chose_website)
     end
   end
 
   def convert_ascii
+    # Conver the image into ascii via kernal
     @ascii_file = "./lib/fann/wc2fann/data/ascii_#{@image_num}.txt"
     system "asciiart -c -w 20 #{@image_file} > #{@ascii_file}"
 
+    # Ensure that the ascii returns 9 lines
     while File.open(@ascii_file) { |f| f.count } != 9
+      # Redo the whole process until a valid ascii file is recieved
       download_image(chose_website)
       convert_ascii
     end

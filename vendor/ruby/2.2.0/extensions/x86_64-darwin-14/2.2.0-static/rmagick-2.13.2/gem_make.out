@@ -1,0 +1,46 @@
+/Users/aaronbarlow/.rbenv/versions/2.2.1/bin/ruby -r ./siteconf20160424-36916-1cbrtzl.rb extconf.rb
+checking for Ruby version >= 1.8.5... yes
+checking for clang... yes
+checking for Magick-config... yes
+checking for ImageMagick version >= 6.4.9... yes
+checking for HDRI disabled version of ImageMagick... yes
+Package MagickCore was not found in the pkg-config search path.
+Perhaps you should add the directory containing `MagickCore.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'MagickCore' found
+Package MagickCore was not found in the pkg-config search path.
+Perhaps you should add the directory containing `MagickCore.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'MagickCore' found
+Package MagickCore was not found in the pkg-config search path.
+Perhaps you should add the directory containing `MagickCore.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'MagickCore' found
+Package MagickCore was not found in the pkg-config search path.
+Perhaps you should add the directory containing `MagickCore.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'MagickCore' found
+checking for stdint.h... yes
+checking for sys/types.h... yes
+checking for wand/MagickWand.h... no
+
+Can't install RMagick 2.13.2. Can't find MagickWand.h.
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/Users/aaronbarlow/.rbenv/versions/2.2.1/bin/$(RUBY_BASE_NAME)
+
+extconf failed, exit code 1
