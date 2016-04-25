@@ -7,6 +7,18 @@
 
 # Group Participants: Aaron Barlow, Kirolos Shahat, and David DaSilva
 
+# Installation
+1. sudo gem install rails
+2. bundle install
+3. brew install libxml2
+4. brew install pkgconfig
+5. brew install imagemagick --disable-openmp OR gem install rmagick -v 6. '2.13.2 instead of step 5 & 6
+7. sudo link imagemagick
+8. rails server
+9. Wait until loads
+10. Go to browser and put in "localhost:3000"
+Note: This is not an exhaustive explanation for setting up the environment from which the neural network may be run.
+
 # Compare Websites
 Rails: Get two website urls from user
 Rails: Validate website urls (make sure they exist)
@@ -38,7 +50,6 @@ Present a link so that the user can put input two new links
 
 Converting ASCII images to numbers
 Read char by char, cast as integer
-///
 
 # Train Neural Network
 Ruby: Randomize websites from “websites_list.txt”
