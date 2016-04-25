@@ -63,6 +63,13 @@ int main(int argc, char* argv[]){
 	chooseNN ? testNN() : trainNN();
 }
 
+/*void createOutputFile(Data* files, bool testNeural, char** superiorSite){
+	writeOutput(files, testNeural, superiorSite);
+	//files->output << endl;
+	//if(!testNeural) files->output << superiorSite[1] << endl;
+	delete files;
+}*/
+
 void writeOutput(Data *files, bool testNeural, char** superiorSite){
   queue<string> tempF1, tempF2;
 	string f1, f2;
@@ -114,6 +121,32 @@ void writeOutput(Data *files, bool testNeural, char** superiorSite){
 }
 
 
+
+/*
+	TrainNN
+	Uses a FANN library tools for creating an Artificial Neural Network and reads data
+	specifically formatted for the the library:
+	------
+	x y z
+	i j
+	l
+	-----
+	x - stands for amount of input num num neurons
+	y - total number of values on the line
+	z - number of output neurons
+	i - pattern one or ascii_i
+	j - pattern two or ascii_2
+	l - the 1 or 2 choice
+
+ 	The function begins by creating a ANN from the given parameters, and reading the
+	output into format suitable for the library . If the network has appropriate parameters
+	the program runs fann train on data which utilizes the RPROP algorithim. It initializes the
+	weights based on the number of epochs (or training sets) that the tester chooses.
+	To test the compatibilty of the data with the network structure, terminal output is shown
+	to signal whether the Network has changed and can be tested on. The main product of the
+	train function is the configuration file. web_comp_config becomes the building block
+	for the function that is to be used in the testing phase.
+*/
 void trainNN(){
 
   //fann requirements
@@ -133,17 +166,18 @@ void trainNN(){
 
 	//back end output for verifying proper performance of training the network
 	cout << "Creating network.\n";
-	//function creates a Network Structure using the given parameters listed above
+	//creates a Network Structure using the given parameters listed above
 	ann = fann_create_standard(num_layers, num_input, num_neurons_hidden, num_output);
 
 	data = fann_read_train_from_file("./lib/fann/wc2fann/data/selection.train");
 
 	fann_set_activation_steepness_hidden(ann, 1);
 	fann_set_activation_steepness_output(ann, 1);
-
+  //FANN_SIGMOID_SYMMETRIC is used to constrain the value of each neuron
 	fann_set_activation_function_hidden(ann, FANN_SIGMOID_SYMMETRIC);
 	fann_set_activation_function_output(ann, FANN_SIGMOID_SYMMETRIC);
-
+  //stops the training in the case that the output neurons differ too greatly
+	//from the desired_error limit
 	fann_set_train_stop_function(ann, FANN_STOPFUNC_BIT);
 	fann_set_bit_fail_limit(ann, 0.01f);
 
@@ -156,18 +190,17 @@ void trainNN(){
 
 	cout << "Testing network. " << fann_test_data(ann, data) << endl;
 
-	unsigned int len = fann_length_train_data(data);
-	for(i = 0; i < len; i++){
+	for(i = 0; i < fann_length_train_data(data); i++){
 			calc_out = fann_run(ann, data->input[i]);
 
-
 			cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
-			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0]) << endl;
+			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])) << endl;
 	}
 
 
 	cout << "Saving network.\n";
-
+  //configuration file created for testNN function
+	// see the madness in web_comp_config.net
 	fann_save(ann, "./lib/fann/wc2fann/data/web_comp_config.net");
 
 	decimal_point = fann_save_to_fixed(ann, "./lib/fann/wc2fann/data/web_comp_fixed.net");
@@ -177,6 +210,36 @@ void trainNN(){
 	fann_destroy_train(data);
 	fann_destroy(ann);
 }
+
+/*
+	TestNN
+	Uses a FANN library tools for opening a Network configuration runs trials on
+	selection data. End product is an answer between 0 and 1. Confidence is given
+	through the subtracted difference between the desired output and the calculated
+	output.
+
+	Testing data must follow with 
+	------
+	x y z
+	i j
+	l
+	-----
+	x - stands for amount of input num num neurons
+	y - total number of values on the line
+	z - number of output neurons
+	i - pattern one or ascii_i
+	j - pattern two or ascii_2
+	l - the 1 or 2 choice
+
+ 	The function begins by creating a ANN from the given parameters, and reading the
+	output into format suitable for the library . If the network has appropriate parameters
+	the program runs fann train on data which utilizes the RPROP algorithim. It initializes the
+	weights based on the number of epochs (or training sets) that the tester chooses.
+	To test the compatibilty of the data with the network structure, terminal output is shown
+	to signal whether the Network has changed and can be tested on. The main product of the
+	train function is the configuration file. web_comp_config becomes the building block
+	for the function that is to be used in the testing phase.
+*/
 
 void testNN(){
         fann_type *calc_out;
@@ -210,8 +273,8 @@ void testNN(){
 #else
         data = fann_read_train_from_file("./lib/fann/wc2fann/data/selection.test");
 #endif
-				unsigned int len = fann_length_train_data(data);
-        for(i = 0; i < len; i++)
+
+        for(i = 0; i < fann_length_train_data(data); i++)
         {
                 fann_reset_MSE(ann);
                 calc_out = fann_test(ann, data->input[i], data->output[i]);
@@ -228,7 +291,7 @@ void testNN(){
 #else
 
 								cout << "Web_Comp test ("<< data->input[i][0] << " , " << data->input[i][1]<< ") ->"<< calc_out[0]
-					 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0]) << endl;
+					 			<<", should be" << data->output[i][0] << ", difference=" << fann_abs(calc_out[0] - data->output[i][0])) << endl;
 
       //sending the selection Web_Comp_Answer
 			int answer = fann_abs(data->output[0][0]);
