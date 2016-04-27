@@ -33,4 +33,4 @@ cascade_activation_steepnesses_count=4
 cascade_activation_steepnesses=2048 4096 6144 8192 
 layer_sizes=3 4 2 
 neurons (num_inputs, activation_function, activation_steepness)=(0, 0, 0) (0, 0, 0) (0, 0, 0) (3, 5, 8192) (3, 5, 8192) (3, 5, 8192) (0, 5, 8192) (4, 5, 8192) (0, 5, 8192) 
-connections (connected_to_neuron, weight)=(0, 24881) (1, 13134) (2, 12585) (0, 16898) (1, 23346) (2, 17650) (0, 8838) (1, 15042) (2, 20556) (3, 2623) (4, 12316) (5, 11917) (6, 22659) 
+connections (connected_to_neuron, weight)=(0, 23109) (1, 4292) (2, 12579) (0, 19803) (1, 5859) (2, -5353) (0, 4152) (1, 3921) (2, -13354) (3, 1101) (4, 5883) (5, 5869) (6, -22401) 

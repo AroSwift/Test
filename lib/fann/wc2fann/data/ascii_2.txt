@@ -2,8 +2,8 @@
 |oooooooooooooooooooo|
 |oooooooooooooooooooo|
 |oooooooooooooooooooo|
-|oooooooooooooooooooo|
-|oooooooooooooooooooo|
-|++++++++++++++++++++|
-|     ....           |
+|o+oooooooooooooooooo|
+|o++++++++++ooooooooo|
+|+........ ~~:ooooooo|
+|+     .     .ooooooo|
 +--------------------+
