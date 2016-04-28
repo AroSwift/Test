@@ -5,6 +5,10 @@ class ProcessWebsite
 
   def initialize(url: nil, image_num: 1)
     @image_num = image_num
+    @get_website = 0
+    @download_image = 0
+    @convert_to_ascii = 0
+    @url_validity = 0
 
     # Either use the website given or get a website
     url.present? ? download_image(url) : download_image(chose_website)
@@ -14,6 +18,11 @@ class ProcessWebsite
 
   def chose_website
     chosen_website = nil
+
+    if @get_website == 0
+      @get_website = 1
+      system "say retrieving website #{@image_num}"
+    end
 
     # Go the website file and find a random website
     File.foreach("lib/fann/wc2fann/data/website_list.txt").each_with_index do |line, number|
@@ -32,6 +41,11 @@ class ProcessWebsite
       url = "http://www." + chose_website
     end
 
+    if @download_image == 0
+      @download_image = 1
+      system "say processing snapshot of website #{@image_num}"
+    end
+
     # Take a snapshot of that website by grabbing the html, css, and javascript
     # and do a compilation the source in nokogiri in order to get an image
     kit = IMGKit.new(url, quality: 30, "crop-w" => 1280, "crop-h" => 720)
@@ -45,6 +59,11 @@ class ProcessWebsite
   end
 
   def convert_ascii
+    if @convert_to_ascii == 0
+      @convert_to_ascii = 1
+      system "say converting website to ascii #{@image_num}"
+    end
+
     # Conver the image into ascii via kernal
     @ascii_file = "./lib/fann/wc2fann/data/ascii_#{@image_num}.txt"
     system "asciiart -c -w 20 #{@image_file} > #{@ascii_file}"
@@ -58,6 +77,11 @@ class ProcessWebsite
   end
 
   def valid?(url)
+    if @url_validity == 0
+      @url_validity = 1
+      system "say determining validity of url #{@image_num}"
+    end
+
     # Determine validity of the url
     response = RestClient.get url
     # Code 200 indicates no errors accessing a webpage

@@ -12,6 +12,7 @@ class NeuralNetworkController < ApplicationController
     ProcessWebsite.new(url: params[:compare_websites][:web_page_link_2], image_num: 2)
 
     # Call C++ file to
+    system "say creating neural network with c++"
     system "lib/fann/wc2fann/webComp"
 
     respond_to do |format|
@@ -21,11 +22,12 @@ class NeuralNetworkController < ApplicationController
 
   def show_websites
     # Read the output of the file
+    system "say reading output of c++ neural network response"
     file = File.open("./lib/fann/wc2fann/data/Web_Comp_Answer.txt", "r+")
     file_output = file.read.squish
 
     best_image = file_output[0]
-    @confidence_level = (file_output[1,file_output.length].strip.to_f * 100).to_s + "%"
+    @confidence_level = (file_output[1,file_output.length].strip.to_f * 100 % 100).to_s + "%"
 
     # Image 1 is better
     if best_image == '0'
@@ -48,6 +50,7 @@ class NeuralNetworkController < ApplicationController
   end
 
   def train_update
+    system "say trainning neural network by calling c++"
     # Call neural network with true indicating that we want to train
     system "lib/fann/wc2fann/webComp #{params[:best_image]}"
 

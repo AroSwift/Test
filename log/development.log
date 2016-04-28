@@ -202,3 +202,405 @@ ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
   Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
   Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
   Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (369.4ms)
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-27 15:59:23 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (384.3ms)
+Completed 200 OK in 525ms (Views: 523.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-27 16:16:00 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (6.5ms)
+Completed 200 OK in 162ms (Views: 161.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/neural_network/compare_websites_update" for ::1 at 2016-04-27 16:16:10 -0400
+Processing by NeuralNetworkController#compare_websites_update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P7Bg5JoOXTS1TmjCN8dH3o9g7x0f/VGP8it/dXBkQDJVZtexPZzNO0hHRLvPRzIRBIRfoRz47D2kK+CHqpZl2g==", "compare_websites"=>{"web_page_link_1"=>"facebook.com", "web_page_link_2"=>"wechitchat.com"}, "commit"=>"Compare Wesbsites"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `image_num' for #<ProcessWebsite:0x007fdcd692f558>):
+  lib/process_website.rb:24:in `chose_website'
+  lib/process_website.rb:41:in `download_image'
+  lib/process_website.rb:14:in `initialize'
+  app/controllers/neural_network_controller.rb:11:in `new'
+  app/controllers/neural_network_controller.rb:11:in `compare_websites_update'
+
+
+  Rendered vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.3ms)
+  Rendered vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (140.9ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (119.4ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (268.6ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2016-04-27 16:16:12 -0400
+
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:28:in `block in call'
+  vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:18:in `catch'
+  vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:18:in `call'
+  vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  vendor/ruby/2.2.0/gems/railties-4.2.1/lib/rails/rack/logger.rb:38:in `call_app'
+  vendor/ruby/2.2.0/gems/railties-4.2.1/lib/rails/rack/logger.rb:20:in `block in call'
+  vendor/ruby/2.2.0/gems/activesupport-4.2.1/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  vendor/ruby/2.2.0/gems/activesupport-4.2.1/lib/active_support/tagged_logging.rb:26:in `tagged'
+  vendor/ruby/2.2.0/gems/activesupport-4.2.1/lib/active_support/tagged_logging.rb:68:in `tagged'
+  vendor/ruby/2.2.0/gems/railties-4.2.1/lib/rails/rack/logger.rb:20:in `call'
+  vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  vendor/ruby/2.2.0/gems/rack-1.6.4/lib/rack/methodoverride.rb:22:in `call'
+  vendor/ruby/2.2.0/gems/rack-1.6.4/lib/rack/runtime.rb:18:in `call'
+  vendor/ruby/2.2.0/gems/activesupport-4.2.1/lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  vendor/ruby/2.2.0/gems/rack-1.6.4/lib/rack/lock.rb:17:in `call'
+  vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/static.rb:113:in `call'
+  vendor/ruby/2.2.0/gems/rack-1.6.4/lib/rack/sendfile.rb:113:in `call'
+  vendor/ruby/2.2.0/gems/railties-4.2.1/lib/rails/engine.rb:518:in `call'
+  vendor/ruby/2.2.0/gems/railties-4.2.1/lib/rails/application.rb:164:in `call'
+  vendor/ruby/2.2.0/gems/rack-1.6.4/lib/rack/lock.rb:17:in `call'
+  vendor/ruby/2.2.0/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+  vendor/ruby/2.2.0/gems/rack-1.6.4/lib/rack/handler/webrick.rb:88:in `service'
+  /Users/aaronbarlow/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/aaronbarlow/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/aaronbarlow/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendered vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered vendor/ruby/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (155.1ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (104.7ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered vendor/ruby/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (234.2ms)
+
+
+Started GET "/" for ::1 at 2016-04-27 16:16:28 -0400
+Processing by NeuralNetworkController#index as HTML
+  Rendered neural_network/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 97ms (Views: 95.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-27 16:16:33 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (6.9ms)
+Completed 200 OK in 143ms (Views: 142.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/neural_network/compare_websites_update" for ::1 at 2016-04-27 16:16:39 -0400
+Processing by NeuralNetworkController#compare_websites_update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IX9eAtQJuueCgWSXdE4FZ8iXQbMvNo5XWKkeaE6/Qz1LqelXc5sq6H+ISO6MznCoQ3PxDywzM+UOqYGalE1m1Q==", "compare_websites"=>{"web_page_link_1"=>"facebook.com", "web_page_link_2"=>"myspace.com"}, "commit"=>"Compare Wesbsites"}
+Redirected to http://localhost:3000/neural_network/show_websites
+Completed 302 Found in 46754ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-27 16:17:26 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (63.3ms)
+Completed 200 OK in 224ms (Views: 222.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-22fa96def6f495422e12684c6c886d31e056bea24befb8522bdc4b8e1b97e02e.png" for ::1 at 2016-04-27 16:17:27 -0400
+
+
+Started GET "/assets/screenshot_2-bc14195c7bd812615b261393582ba118c255aa87ad7770100ef390f6a85fd167.png" for ::1 at 2016-04-27 16:17:27 -0400
+
+
+Started GET "/neural_network/train" for ::1 at 2016-04-27 16:22:36 -0400
+Processing by NeuralNetworkController#train as HTML
+  Rendered neural_network/train.html.haml within layouts/application (37.2ms)
+Completed 200 OK in 41177ms (Views: 213.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-e3299eb204d432a08e616330c0115ae7c37269af23ecf1f637faa29531c610b9.png" for ::1 at 2016-04-27 16:23:17 -0400
+
+
+Started GET "/assets/screenshot_2-918ed8339d0192cb6189c2596c9868a0809713d99145c4f62b83f2e86180b413.png" for ::1 at 2016-04-27 16:23:17 -0400
+
+
+Started GET "/neural_network/train_update?best_image=0" for ::1 at 2016-04-27 16:23:21 -0400
+Processing by NeuralNetworkController#train_update as HTML
+  Parameters: {"best_image"=>"0"}
+Redirected to http://localhost:3000/neural_network/train
+Completed 302 Found in 3516ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/train" for ::1 at 2016-04-27 16:23:25 -0400
+Processing by NeuralNetworkController#train as HTML
+  Rendered neural_network/train.html.haml within layouts/application (59.3ms)
+Completed 200 OK in 42401ms (Views: 175.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-b15395a95a29f3a3e4852ac104bea18a9fab6725acd1fbc899e9099f7a0b1b2c.png" for ::1 at 2016-04-27 16:24:07 -0400
+
+
+Started GET "/assets/screenshot_2-4741c05c5351834b049587dc1978b47df90b723b8c97af8af77368dc6befa9be.png" for ::1 at 2016-04-27 16:24:07 -0400
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-27 16:25:08 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (14.3ms)
+Completed 200 OK in 153ms (Views: 152.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/neural_network/compare_websites_update" for ::1 at 2016-04-27 16:26:40 -0400
+Processing by NeuralNetworkController#compare_websites_update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Xd2g6PeOPl2FlU327P+m4DOBQlHFgZCuRnVvSfOVcT83Cxe9UByuUnicYY8Uf9MvuGXy7caELRwQdfC7KWdU1w==", "compare_websites"=>{"web_page_link_1"=>"faster.com", "web_page_link_2"=>"watertower.com"}, "commit"=>"Compare Wesbsites"}
+Redirected to http://localhost:3000/neural_network/show_websites
+Completed 302 Found in 25266ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-27 16:27:06 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (32.3ms)
+Completed 200 OK in 3804ms (Views: 160.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_2-b1b19615f01a590a9440be1aeca08c24d266213815f62914186a40abb030f1d2.png" for ::1 at 2016-04-27 16:27:11 -0400
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-27 16:27:50 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (11.5ms)
+Completed 200 OK in 3733ms (Views: 169.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-27 16:28:18 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (10.5ms)
+Completed 200 OK in 3618ms (Views: 125.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-603f330c29af013305325569c8c75d03d688963abd8cde4fffec17b5ce417bfb.css?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter-bootstrap-static/sprites.self-556e1741ff6d22f63fe0be609679c8f06ffc45eabc31836b6b785475bb283b84.css?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/bootstrap_and_overrides.self-f5a90d20e5090d64763dcfad94d947343b9898d7a030bb466e9247e00ca06c27.css?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/neural_network.self-d1547b2aff5576fcc903b6386b33eba00d335f1e5e87d8e60c8158bcc2793b40.css?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/spinner.self-a2f151e13eb7ecaa7455c71c644b24b349e31d5cea21f90c94d1be6354e49ee7.css?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/neural_network.self-216d04c4f0e19cbdfd720f5a10220d470adc36ef49d4cccd753c9374a8bba9e4.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/screenshot_2-b1b19615f01a590a9440be1aeca08c24d266213815f62914186a40abb030f1d2.png" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/screenshot_1-b15395a95a29f3a3e4852ac104bea18a9fab6725acd1fbc899e9099f7a0b1b2c.png" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for ::1 at 2016-04-27 16:28:23 -0400
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-27 16:28:31 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (6.7ms)
+Completed 200 OK in 139ms (Views: 137.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/neural_network/compare_websites_update" for ::1 at 2016-04-27 16:29:49 -0400
+Processing by NeuralNetworkController#compare_websites_update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zmKG7Rqc9PHCGWgcM4nEweKHlgJFKjGC+Vr4wP5yKOKktDG4vQ5k/j8QRGXLCbEOaWMmvkYvjDCvWmcyJIANCg==", "compare_websites"=>{"web_page_link_1"=>"kingkong.com", "web_page_link_2"=>"advertizeplus.net"}, "commit"=>"Compare Wesbsites"}
+Redirected to http://localhost:3000/neural_network/show_websites
+Completed 302 Found in 45457ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-27 16:30:35 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (34.9ms)
+Completed 200 OK in 3700ms (Views: 207.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-247e12e6e94013f77855f95c551e81b494a4d8727e02e40d433860c76925bb75.png" for ::1 at 2016-04-27 16:30:40 -0400
+
+
+Started GET "/assets/screenshot_2-c08943c33189f0e4310f8daa56131d72ce557944954c1436e12675130c88ee3e.png" for ::1 at 2016-04-27 16:30:40 -0400
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-27 16:32:40 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (9.5ms)
+Completed 200 OK in 151ms (Views: 149.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/neural_network/compare_websites_update" for ::1 at 2016-04-27 16:33:06 -0400
+Processing by NeuralNetworkController#compare_websites_update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eyjR1L83hFcgXFbtDc6q+wHQ2uhpE0DUjv2bA3Cu0lcR/maBGKUUWN1VepT1Tt80ijRqVGoW/WbY/QTxqlz3vw==", "compare_websites"=>{"web_page_link_1"=>"reddit.com", "web_page_link_2"=>"msn.com"}, "commit"=>"Compare Wesbsites"}
+Redirected to http://localhost:3000/neural_network/show_websites
+Completed 302 Found in 28443ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-27 16:33:35 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (52.6ms)
+Completed 200 OK in 3694ms (Views: 205.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-fdd256de76d2c0d8aff9979a6907ff6ac048a67ba97b00f87d541d160950e484.png" for ::1 at 2016-04-27 16:33:39 -0400
+
+
+Started GET "/assets/screenshot_2-d541479bad974bbc3110c9e4a30794c8730e4ece54e0f66a895baad0b40b2880.png" for ::1 at 2016-04-27 16:33:39 -0400
+
+
+Started GET "/neural_network/train" for ::1 at 2016-04-27 16:33:45 -0400
+Processing by NeuralNetworkController#train as HTML
+  Rendered neural_network/train.html.haml within layouts/application (48.6ms)
+Completed 200 OK in 114192ms (Views: 234.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-1bb00e04d2fa9c306aa41b4670efa0f8b374d6f896b040b32b7288e1084e86e3.png" for ::1 at 2016-04-27 16:35:40 -0400
+
+
+Started GET "/assets/screenshot_2-88b70dc692279b11608fc9f4d06c46fa518d1a31ad44f3f3374ac37b1d889e28.png" for ::1 at 2016-04-27 16:35:40 -0400
+
+
+Started GET "/neural_network/train_update?best_image=0" for ::1 at 2016-04-27 16:35:48 -0400
+Processing by NeuralNetworkController#train_update as HTML
+  Parameters: {"best_image"=>"0"}
+Redirected to http://localhost:3000/neural_network/train
+Completed 302 Found in 8453ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/train" for ::1 at 2016-04-27 16:35:56 -0400
+Processing by NeuralNetworkController#train as HTML
+  Rendered neural_network/train.html.haml within layouts/application (48.7ms)
+Completed 200 OK in 45244ms (Views: 226.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-5b7230ffe6d2b6991dbdb2b9aa993affe61ab83cc30579f4aca4a51027ec494c.png" for ::1 at 2016-04-27 16:36:41 -0400
+
+
+Started GET "/assets/screenshot_2-8b892ad4aeac897e007593b425735df4ad5ade9e07d9420730fc458b0fab8277.png" for ::1 at 2016-04-27 16:36:42 -0400
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-27 16:39:41 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (9.2ms)
+Completed 200 OK in 217ms (Views: 215.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/train" for ::1 at 2016-04-27 18:55:07 -0400
+Processing by NeuralNetworkController#train as HTML
+  Rendered neural_network/train.html.haml within layouts/application (67.4ms)
+Completed 200 OK in 60591ms (Views: 200.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-abeeced5a9d79d31b949d5fe7ca99341a51a93000894e27226675694f8ac1929.png" for ::1 at 2016-04-27 18:56:07 -0400
+
+
+Started GET "/assets/screenshot_2-6e02d41f4344e290a2065d8e6b8464b4a3209184cc17aebdc0b7ab60ecdce6d4.png" for ::1 at 2016-04-27 18:56:07 -0400
+
+
+Started GET "/neural_network/train_update?best_image=0" for ::1 at 2016-04-27 18:56:21 -0400
+Processing by NeuralNetworkController#train_update as HTML
+  Parameters: {"best_image"=>"0"}
+Redirected to http://localhost:3000/neural_network/train
+Completed 302 Found in 3110ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/train" for ::1 at 2016-04-27 18:56:24 -0400
+Processing by NeuralNetworkController#train as HTML
+  Rendered neural_network/train.html.haml within layouts/application (37.5ms)
+Completed 200 OK in 34907ms (Views: 167.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_1-241553aa4856dbb1ecae824b184e883a3a97fcd36e4d2b191d4de9c379b91e3a.png" for ::1 at 2016-04-27 18:56:59 -0400
+
+
+Started GET "/assets/screenshot_2-fe67230322d904792bc80688e8adc2d7d93e5f4b7146433ca9df33fedd39bc0c.png" for ::1 at 2016-04-27 18:56:59 -0400
+
+
+Started GET "/neural_network/compare_websites" for ::1 at 2016-04-27 18:57:03 -0400
+Processing by NeuralNetworkController#compare_websites as HTML
+  Rendered neural_network/compare_websites.html.haml within layouts/application (9.5ms)
+Completed 200 OK in 130ms (Views: 128.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/neural_network/compare_websites_update" for ::1 at 2016-04-27 18:57:24 -0400
+Processing by NeuralNetworkController#compare_websites_update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3NAmvqNLaEaFARGnCFdMr1pr/7YyNW6JWAW0ftDqp7m2BpHrBNn4SXgIPd7w1zlg0Y9PCjEw0zsOBSuMChiCUQ==", "compare_websites"=>{"web_page_link_1"=>"facebook.com", "web_page_link_2"=>"reddit.com"}, "commit"=>"Compare Wesbsites"}
+Redirected to http://localhost:3000/neural_network/show_websites
+Completed 302 Found in 33419ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/neural_network/show_websites" for ::1 at 2016-04-27 18:57:57 -0400
+Processing by NeuralNetworkController#show_websites as HTML
+  Rendered neural_network/show_websites.html.haml within layouts/application (40.2ms)
+Completed 200 OK in 3801ms (Views: 288.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screenshot_2-971ba97599ef026815133267fde997006115d5ce001a96af8d246fd604cae841.png" for ::1 at 2016-04-27 18:58:04 -0400
